@@ -71,11 +71,62 @@ const Dashboard = () => {
         </div>
       </motion.div>
 
-      {/* Quick Actions */}
+{/* Charts Overview */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
+        className="glass-card p-8"
+      >
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-semibold text-white">Key Metrics</h2>
+          <ApperIcon name="BarChart3" size={24} className="text-primary" />
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {[
+            {
+              title: "Contact Growth",
+              value: "+23%",
+              description: "vs last month",
+              icon: "TrendingUp",
+              color: "from-emerald-500 to-teal-500"
+            },
+            {
+              title: "Deal Conversion",
+              value: "68%",
+              description: "success rate",
+              icon: "Target",
+              color: "from-amber-500 to-orange-500"
+            },
+            {
+              title: "Activity Rate",
+              value: "156",
+              description: "this week",
+              icon: "Activity",
+              color: "from-pink-500 to-rose-500"
+            }
+          ].map((chart, index) => (
+            <div key={chart.title} className="glass-card p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${chart.color} flex items-center justify-center`}>
+                  <ApperIcon name={chart.icon} size={20} className="text-white" />
+                </div>
+                <div className="text-right">
+                  <p className="text-2xl font-bold gradient-text">{chart.value}</p>
+                  <p className="text-white/60 text-sm">{chart.description}</p>
+                </div>
+              </div>
+              <h3 className="text-white font-medium">{chart.title}</h3>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Quick Actions */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6 }}
         className="grid grid-cols-1 md:grid-cols-3 gap-6"
       >
         {[
