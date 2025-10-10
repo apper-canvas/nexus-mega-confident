@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import React from "react";
+import Chart from "react-apexcharts";
 import ApperIcon from "@/components/ApperIcon";
 import Empty from "@/components/ui/Empty";
-
 const Analytics = () => {
   return (
     <div className="space-y-6">
@@ -52,8 +52,7 @@ const Analytics = () => {
               </div>
             </div>
             <div className="h-64">
-              {(() => {
-                const Chart = require('react-apexcharts').default;
+{(() => {
                 const series = [{
                   name: 'New Contacts',
                   data: [12, 18, 25, 32, 28, 45, 38, 52, 61, 48, 73, 84]
@@ -117,8 +116,7 @@ const Analytics = () => {
               </div>
             </div>
             <div className="h-64">
-              {(() => {
-                const Chart = require('react-apexcharts').default;
+{(() => {
                 const series = [68, 24, 8];
                 const options = {
                   chart: {
@@ -184,8 +182,7 @@ const Analytics = () => {
               </div>
             </div>
             <div className="h-64">
-              {(() => {
-                const Chart = require('react-apexcharts').default;
+{(() => {
                 const series = [{
                   name: 'Activities',
                   data: [44, 32, 28, 19, 25, 31, 18]
