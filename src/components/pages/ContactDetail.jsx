@@ -169,9 +169,9 @@ const [sendingEmail, setSendingEmail] = useState(false);
             </div>
           </div>
 <div className="flex gap-3">
-            <Button 
+<Button 
               onClick={handleSendEmail} 
-              variant="secondary"
+              variant="purple"
               disabled={sendingEmail}
             >
               <ApperIcon name={sendingEmail ? "Loader2" : "Mail"} size={16} />
