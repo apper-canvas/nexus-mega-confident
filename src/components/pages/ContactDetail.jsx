@@ -24,7 +24,7 @@ const ContactDetail = () => {
   const [activeTab, setActiveTab] = useState("overview");
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [formLoading, setFormLoading] = useState(false);
-
+  const [generating, setGenerating] = useState(false);
 
   const tabs = [
     { id: "overview", label: "Overview" },
@@ -64,8 +64,7 @@ const ContactDetail = () => {
       setFormLoading(false);
     }
   };
-
-  const handleDelete = async () => {
+const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete this contact?")) {
       try {
         await contactsService.delete(id);
@@ -75,7 +74,46 @@ const ContactDetail = () => {
         toast.error("Failed to delete contact");
       }
     }
-};
+  };
+
+  const handleGenerateAvatar = async () => {
+    setGenerating(true);
+    toast.info("Generating avatar...");
+    
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+
+      const result = await apperClient.functions.invoke(import.meta.env.VITE_GENERATE_AVATAR, {
+        body: JSON.stringify({ name: `${contact.firstName} ${contact.lastName}` }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+
+      if (result.success === false) {
+        console.info(`apper_info: Got an error in this function: ${import.meta.env.VITE_GENERATE_AVATAR}. The response body is: ${JSON.stringify(result)}.`);
+        toast.error(result.error || "Failed to generate avatar");
+        return;
+      }
+
+      const updatedContact = await contactsService.update(id, {
+        ...contact,
+        imageUrl: result.imageUrl
+      });
+
+      setContact(updatedContact);
+      toast.success("Avatar generated successfully!");
+    } catch (error) {
+      console.info(`apper_info: Got this error in this function: ${import.meta.env.VITE_GENERATE_AVATAR}. The error is: ${error.message}`);
+      toast.error("Failed to generate avatar");
+    } finally {
+      setGenerating(false);
+    }
+  };
 
 
   if (loading) {
@@ -110,9 +148,10 @@ const ContactDetail = () => {
       >
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex items-center gap-6">
-            <Avatar
+<Avatar
               name={`${contact.firstName} ${contact.lastName}`}
               size="xl"
+              imageUrl={contact.imageUrl}
             />
             <div>
               <h1 className="text-3xl font-bold gradient-text">
@@ -128,6 +167,14 @@ const ContactDetail = () => {
             </div>
           </div>
 <div className="flex gap-3">
+            <Button 
+              onClick={handleGenerateAvatar} 
+              variant="secondary"
+              disabled={generating}
+            >
+              <ApperIcon name="Image" size={16} />
+              {generating ? "Generating..." : "Generate Image"}
+            </Button>
             <Button onClick={() => setIsEditModalOpen(true)} variant="secondary">
               <ApperIcon name="Edit2" size={16} />
               Edit
