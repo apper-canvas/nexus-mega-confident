@@ -1,19 +1,20 @@
-import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
 import { toast } from "react-toastify";
-import ApperIcon from "@/components/ApperIcon";
-import Button from "@/components/atoms/Button";
-import Avatar from "@/components/atoms/Avatar";
-import Badge from "@/components/atoms/Badge";
-import Tabs from "@/components/molecules/Tabs";
-import Modal from "@/components/molecules/Modal";
-import ContactForm from "@/components/organisms/ContactForm";
-import Loading from "@/components/ui/Loading";
-import Error from "@/components/ui/Error";
-import Empty from "@/components/ui/Empty";
 import contactsService from "@/services/api/contactsService";
+import ApperIcon from "@/components/ApperIcon";
+import Loading from "@/components/ui/Loading";
+import Empty from "@/components/ui/Empty";
+import Error from "@/components/ui/Error";
+import Contacts from "@/components/pages/Contacts";
+import Button from "@/components/atoms/Button";
+import Badge from "@/components/atoms/Badge";
+import Avatar from "@/components/atoms/Avatar";
+import Modal from "@/components/molecules/Modal";
+import Tabs from "@/components/molecules/Tabs";
+import ContactForm from "@/components/organisms/ContactForm";
 
 const ContactDetail = () => {
   const { id } = useParams();
@@ -24,7 +25,6 @@ const ContactDetail = () => {
   const [activeTab, setActiveTab] = useState("overview");
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [formLoading, setFormLoading] = useState(false);
-  const [generating, setGenerating] = useState(false);
 
   const tabs = [
     { id: "overview", label: "Overview" },
@@ -74,47 +74,7 @@ const handleDelete = async () => {
         toast.error("Failed to delete contact");
       }
     }
-  };
-
-  const handleGenerateAvatar = async () => {
-    setGenerating(true);
-    toast.info("Generating avatar...");
-    
-    try {
-      const { ApperClient } = window.ApperSDK;
-      const apperClient = new ApperClient({
-        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
-        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
-      });
-
-      const result = await apperClient.functions.invoke(import.meta.env.VITE_GENERATE_AVATAR, {
-        body: JSON.stringify({ name: `${contact.firstName} ${contact.lastName}` }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-
-      if (result.success === false) {
-        console.info(`apper_info: Got an error in this function: ${import.meta.env.VITE_GENERATE_AVATAR}. The response body is: ${JSON.stringify(result)}.`);
-        toast.error(result.error || "Failed to generate avatar");
-        return;
-      }
-
-      const updatedContact = await contactsService.update(id, {
-        ...contact,
-        imageUrl: result.imageUrl
-      });
-
-      setContact(updatedContact);
-      toast.success("Avatar generated successfully!");
-    } catch (error) {
-      console.info(`apper_info: Got this error in this function: ${import.meta.env.VITE_GENERATE_AVATAR}. The error is: ${error.message}`);
-      toast.error("Failed to generate avatar");
-    } finally {
-      setGenerating(false);
-    }
-  };
-
+};
 
   if (loading) {
     return <Loading type="detail" />;
@@ -163,20 +123,13 @@ const handleDelete = async () => {
                   <ApperIcon name="Building2" size={16} />
                   {contact.company}
                 </p>
-              )}
+)}
             </div>
           </div>
-<div className="flex gap-3">
-            <Button 
-              onClick={handleGenerateAvatar} 
-              variant="secondary"
-              disabled={generating}
-            >
-              <ApperIcon name="Image" size={16} />
-              {generating ? "Generating..." : "Generate Image"}
-            </Button>
-            <Button onClick={() => setIsEditModalOpen(true)} variant="secondary">
-              <ApperIcon name="Edit2" size={16} />
+
+          <div className="flex items-center gap-3">
+            <Button onClick={() => setIsEditModalOpen(true)} variant="primary">
+              <ApperIcon name="Edit" size={16} />
               Edit
             </Button>
             <Button onClick={handleDelete} variant="danger">
@@ -211,9 +164,9 @@ const handleDelete = async () => {
                 <ApperIcon name="User" size={20} className="text-primary" />
                 Contact Information
               </h3>
-              <div className="space-y-4">
+<div className="space-y-4">
                 <div>
-<label className="text-gray-600 text-sm">Email</label>
+                  <label className="text-white/60 text-sm">Email</label>
                   <p className="text-white mt-1">{contact.email}</p>
                 </div>
                 {contact.phone && (
@@ -245,23 +198,23 @@ const handleDelete = async () => {
                 Timeline
               </h3>
               <div className="space-y-4">
-                <div>
+<div>
                   <label className="text-white/60 text-sm">Last Contacted</label>
-<p className="text-gray-900 mt-1">
+                  <p className="text-white mt-1">
                     {contact.lastContacted
                       ? format(new Date(contact.lastContacted), "MMMM d, yyyy 'at' h:mm a")
                       : "Never"}
                   </p>
                 </div>
                 <div>
-<label className="text-gray-600 text-sm">Created</label>
+                  <label className="text-white/60 text-sm">Created</label>
                   <p className="text-white mt-1">
                     {format(new Date(contact.createdAt), "MMMM d, yyyy")}
                   </p>
                 </div>
                 <div>
                   <label className="text-white/60 text-sm">Last Updated</label>
-<p className="text-gray-900 mt-1">
+                  <p className="text-white mt-1">
                     {format(new Date(contact.updatedAt), "MMMM d, yyyy")}
                   </p>
                 </div>
