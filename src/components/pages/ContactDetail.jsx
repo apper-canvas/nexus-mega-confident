@@ -16,16 +16,22 @@ import Modal from "@/components/molecules/Modal";
 import Tabs from "@/components/molecules/Tabs";
 import ContactForm from "@/components/organisms/ContactForm";
 
+const { ApperClient } = window.ApperSDK;
+const apperClient = new ApperClient({
+  apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+  apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+});
+
 const ContactDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [contact, setContact] = useState(null);
+const [contact, setContact] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [activeTab, setActiveTab] = useState("overview");
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [formLoading, setFormLoading] = useState(false);
-
+  const [generatingAvatar, setGeneratingAvatar] = useState(false);
   const tabs = [
     { id: "overview", label: "Overview" },
     { id: "activity", label: "Activity" },
@@ -74,6 +80,39 @@ const handleDelete = async () => {
         toast.error("Failed to delete contact");
       }
     }
+};
+
+const handleGenerateAvatar = async () => {
+  if (!contact) return;
+  
+  setGeneratingAvatar(true);
+  try {
+    const contactName = `${contact.firstName} ${contact.lastName}`;
+    
+    const result = await apperClient.functions.invoke(
+      import.meta.env.VITE_GENERATE_CONTACT_AVATAR,
+      {
+        body: JSON.stringify({ name: contactName }),
+        headers: { 'Content-Type': 'application/json' }
+      }
+    );
+
+    if (result.success === false) {
+      console.info(`apper_info: Got an error in this function: ${import.meta.env.VITE_GENERATE_CONTACT_AVATAR}. The response body is: ${JSON.stringify(result)}.`);
+      toast.error(result.error || "Failed to generate avatar");
+      return;
+    }
+
+    await contactsService.updateAvatar(id, result.imageUrl);
+    setContact({ ...contact, imageUrl: result.imageUrl });
+    toast.success("Avatar generated successfully!");
+    
+  } catch (error) {
+    console.info(`apper_info: Got this error in this function: ${import.meta.env.VITE_GENERATE_CONTACT_AVATAR}. The error is: ${error.message}`);
+    toast.error("Failed to generate avatar");
+  } finally {
+    setGeneratingAvatar(false);
+  }
 };
 
   if (loading) {
@@ -127,7 +166,15 @@ const handleDelete = async () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+<div className="flex items-center gap-3">
+            <Button 
+              onClick={handleGenerateAvatar} 
+              variant="secondary"
+              disabled={generatingAvatar}
+            >
+              <ApperIcon name={generatingAvatar ? "Loader2" : "Image"} size={16} className={generatingAvatar ? "animate-spin" : ""} />
+              {generatingAvatar ? "Generating..." : "Generate Image"}
+            </Button>
             <Button onClick={() => setIsEditModalOpen(true)} variant="primary">
               <ApperIcon name="Edit" size={16} />
               Edit

@@ -48,6 +48,20 @@ const contactsService = {
     return { ...contacts[index] };
   },
 
+  updateAvatar: async (id, imageUrl) => {
+    await delay(300);
+    const index = contacts.findIndex((c) => c.Id === parseInt(id));
+    if (index === -1) {
+      throw new Error("Contact not found");
+    }
+    contacts[index] = {
+      ...contacts[index],
+      imageUrl,
+      updatedAt: new Date().toISOString(),
+    };
+    return { ...contacts[index] };
+  },
+
   delete: async (id) => {
     await delay(300);
     const index = contacts.findIndex((c) => c.Id === parseInt(id));
