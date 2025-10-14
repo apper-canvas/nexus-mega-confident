@@ -3,18 +3,18 @@ import { useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
 import { toast } from "react-toastify";
-import contactsService from "@/services/api/contactsService";
 import ApperIcon from "@/components/ApperIcon";
-import Loading from "@/components/ui/Loading";
-import Empty from "@/components/ui/Empty";
-import Error from "@/components/ui/Error";
-import Contacts from "@/components/pages/Contacts";
-import Button from "@/components/atoms/Button";
-import Badge from "@/components/atoms/Badge";
 import Avatar from "@/components/atoms/Avatar";
+import Badge from "@/components/atoms/Badge";
+import Button from "@/components/atoms/Button";
 import Modal from "@/components/molecules/Modal";
 import Tabs from "@/components/molecules/Tabs";
 import ContactForm from "@/components/organisms/ContactForm";
+import Contacts from "@/components/pages/Contacts";
+import Empty from "@/components/ui/Empty";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
+import contactsService from "@/services/api/contactsService";
 
 const { ApperClient } = window.ApperSDK;
 const apperClient = new ApperClient({
@@ -25,13 +25,13 @@ const apperClient = new ApperClient({
 const ContactDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-const [contact, setContact] = useState(null);
+  const [contact, setContact] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [activeTab, setActiveTab] = useState("overview");
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [formLoading, setFormLoading] = useState(false);
-  const [generatingAvatar, setGeneratingAvatar] = useState(false);
+
   const tabs = [
     { id: "overview", label: "Overview" },
     { id: "activity", label: "Activity" },
@@ -80,39 +80,6 @@ const handleDelete = async () => {
         toast.error("Failed to delete contact");
       }
     }
-};
-
-const handleGenerateAvatar = async () => {
-  if (!contact) return;
-  
-  setGeneratingAvatar(true);
-  try {
-    const contactName = `${contact.firstName} ${contact.lastName}`;
-    
-    const result = await apperClient.functions.invoke(
-      import.meta.env.VITE_GENERATE_CONTACT_AVATAR,
-      {
-        body: JSON.stringify({ name: contactName }),
-        headers: { 'Content-Type': 'application/json' }
-      }
-    );
-
-    if (result.success === false) {
-      console.info(`apper_info: Got an error in this function: ${import.meta.env.VITE_GENERATE_CONTACT_AVATAR}. The response body is: ${JSON.stringify(result)}.`);
-      toast.error(result.error || "Failed to generate avatar");
-      return;
-    }
-
-    await contactsService.updateAvatar(id, result.imageUrl);
-    setContact({ ...contact, imageUrl: result.imageUrl });
-    toast.success("Avatar generated successfully!");
-    
-  } catch (error) {
-    console.info(`apper_info: Got this error in this function: ${import.meta.env.VITE_GENERATE_CONTACT_AVATAR}. The error is: ${error.message}`);
-    toast.error("Failed to generate avatar");
-  } finally {
-    setGeneratingAvatar(false);
-  }
 };
 
   if (loading) {
@@ -164,19 +131,11 @@ const handleGenerateAvatar = async () => {
                 </p>
 )}
             </div>
-          </div>
+</div>
 
-<div className="flex items-center gap-3">
-            <Button 
-              onClick={handleGenerateAvatar} 
-              variant="secondary"
-              disabled={generatingAvatar}
-            >
-              <ApperIcon name={generatingAvatar ? "Loader2" : "Image"} size={16} className={generatingAvatar ? "animate-spin" : ""} />
-              {generatingAvatar ? "Generating..." : "Generate Image"}
-            </Button>
-            <Button onClick={() => setIsEditModalOpen(true)} variant="primary">
-              <ApperIcon name="Edit" size={16} />
+          <div className="flex items-center gap-3">
+            <Button onClick={() => setShowEditModal(true)} variant="secondary">
+              <ApperIcon name="Edit2" size={16} />
               Edit
             </Button>
             <Button onClick={handleDelete} variant="danger">
