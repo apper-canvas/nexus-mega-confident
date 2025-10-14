@@ -134,7 +134,7 @@ const handleDelete = async () => {
 </div>
 
           <div className="flex items-center gap-3">
-            <Button onClick={() => setShowEditModal(true)} variant="secondary">
+            <Button onClick={() => setIsEditModalOpen(true)} variant="secondary">
               <ApperIcon name="Edit2" size={16} />
               Edit
             </Button>
