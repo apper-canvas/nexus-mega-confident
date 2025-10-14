@@ -13,9 +13,9 @@ const Button = forwardRef(({
   const baseStyles = "inline-flex items-center justify-center gap-2 font-medium rounded-lg transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed";
   
 const variants = {
-    primary: "bg-gradient-to-r from-primary to-secondary text-white hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] shadow-glass",
-    secondary: "border border-white/20 text-white hover:bg-white/5 hover:border-white/30",
-    ghost: "text-white/80 hover:bg-white/5 hover:text-white",
+primary: "bg-gradient-to-r from-primary to-secondary text-white hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] shadow-glass",
+    secondary: "border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400",
+    ghost: "text-gray-600 hover:bg-gray-100 hover:text-gray-900",
     danger: "bg-red-500 text-white hover:bg-red-600 hover:scale-[1.02] active:scale-[0.98]",
     purple: "bg-primary text-white hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98] shadow-glass",
   };
@@ -35,7 +35,7 @@ const variants = {
     >
       {loading ? (
         <>
-          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+<div className="w-4 h-4 border-2 border-gray-300 border-t-gray-900 rounded-full animate-spin" />
           Loading...
         </>
       ) : (

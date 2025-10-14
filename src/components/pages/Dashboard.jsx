@@ -20,7 +20,7 @@ const Dashboard = () => {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-4xl font-bold gradient-text mb-2">Welcome back, John!</h1>
-            <p className="text-white/60 text-lg">Here's what's happening with your business today.</p>
+<p className="text-gray-600 text-lg">Here's what's happening with your business today.</p>
           </div>
           <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-glow">
             <ApperIcon name="Sparkles" size={32} className="text-white" />
@@ -43,8 +43,8 @@ const Dashboard = () => {
                 <ApperIcon name={metric.icon} size={24} className="text-white" />
               </div>
             </div>
-            <p className="text-white/60 text-sm mb-1">{metric.label}</p>
-            <p className="text-4xl font-bold gradient-text">{metric.value}</p>
+<p className="text-gray-600 text-sm mb-1">{metric.label}</p>
+            <p className="text-4xl font-bold text-gray-900">{metric.value}</p>
           </motion.div>
         ))}
       </div>
@@ -57,15 +57,15 @@ const Dashboard = () => {
         className="glass-card p-8"
       >
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-semibold text-white">Recent Activity</h2>
+<h2 className="text-2xl font-semibold text-gray-900">Recent Activity</h2>
           <ApperIcon name="Activity" size={24} className="text-primary" />
         </div>
         <div className="flex flex-col items-center justify-center py-16">
           <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-4">
             <ApperIcon name="Clock" size={40} className="text-primary" />
           </div>
-          <h3 className="text-xl font-semibold text-white mb-2">Activity Feed Coming Soon</h3>
-          <p className="text-white/60 text-center max-w-md">
+<h3 className="text-xl font-semibold text-gray-900 mb-2">Activity Feed Coming Soon</h3>
+          <p className="text-gray-600 text-center max-w-md">
             Track all your recent interactions, deals, and important events in one place.
           </p>
         </div>
@@ -79,7 +79,7 @@ const Dashboard = () => {
         className="glass-card p-8"
       >
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-semibold text-white">Key Metrics</h2>
+<h2 className="text-2xl font-semibold text-gray-900">Key Metrics</h2>
           <ApperIcon name="BarChart3" size={24} className="text-primary" />
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -112,11 +112,11 @@ const Dashboard = () => {
                   <ApperIcon name={chart.icon} size={20} className="text-white" />
                 </div>
                 <div className="text-right">
-                  <p className="text-2xl font-bold gradient-text">{chart.value}</p>
-                  <p className="text-white/60 text-sm">{chart.description}</p>
+<p className="text-2xl font-bold text-gray-900">{chart.value}</p>
+                  <p className="text-gray-600 text-sm">{chart.description}</p>
                 </div>
               </div>
-              <h3 className="text-white font-medium">{chart.title}</h3>
+<h3 className="text-gray-900 font-medium">{chart.title}</h3>
             </div>
           ))}
         </div>
@@ -141,8 +141,8 @@ const Dashboard = () => {
             <div className={`w-12 h-12 rounded-lg bg-${action.color}/20 flex items-center justify-center mb-4`}>
               <ApperIcon name={action.icon} size={24} className={`text-${action.color}`} />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-1">{action.label}</h3>
-            <p className="text-white/60 text-sm">{action.desc}</p>
+<h3 className="text-lg font-semibold text-gray-900 mb-1">{action.label}</h3>
+            <p className="text-gray-600 text-sm">{action.desc}</p>
           </div>
         ))}
       </motion.div>

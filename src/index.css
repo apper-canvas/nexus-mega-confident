@@ -12,8 +12,8 @@
 
 body {
   font-family: "Inter", system-ui, sans-serif;
-  background: #0F0F1E;
-  color: #ffffff;
+  background: #F8F9FA;
+  color: #1F2937;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -25,16 +25,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(124, 58, 237, 0.5);
+  background: rgba(124, 58, 237, 0.3);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(124, 58, 237, 0.7);
+  background: rgba(124, 58, 237, 0.5);
 }
 
 /* Toast Overrides */
@@ -43,12 +43,12 @@ body {
 }
 
 .Toastify__toast {
-  background: rgba(15, 15, 30, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   padding: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   font-family: "Inter", sans-serif;
   min-height: auto;
 }
@@ -66,7 +66,7 @@ body {
 }
 
 .Toastify__toast-body {
-  color: #ffffff;
+  color: #1F2937;
   padding: 0;
   font-size: 14px;
 }
@@ -76,21 +76,21 @@ body {
 }
 
 .Toastify__close-button {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.5);
   opacity: 1;
 }
 
 .Toastify__close-button:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /* Glass Card Effect */
 .glass-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.15);
+  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.1);
 }
 
 /* Gradient Text */

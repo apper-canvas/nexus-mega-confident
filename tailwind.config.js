@@ -6,12 +6,12 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
+colors: {
         primary: "#7C3AED",
         secondary: "#3B82F6",
         accent: "#A78BFA",
-        surface: "rgba(255, 255, 255, 0.05)",
-        background: "#0F0F1E",
+        surface: "rgba(255, 255, 255, 0.7)",
+        background: "#F8F9FA",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],

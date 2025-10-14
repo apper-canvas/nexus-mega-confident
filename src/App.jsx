@@ -11,7 +11,7 @@ import Analytics from "@/components/pages/Analytics";
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-background">
+<div className="min-h-screen bg-background">
         <Sidebar />
         
         <main className="lg:ml-60 p-6 lg:p-8 pt-20 lg:pt-8">
@@ -37,7 +37,7 @@ const App = () => {
           pauseOnFocusLoss
           draggable
           pauseOnHover
-          theme="dark"
+theme="light"
         />
       </div>
     </BrowserRouter>

@@ -157,9 +157,9 @@ const [sendingEmail, setSendingEmail] = useState(false);
             />
             <div>
               <h1 className="text-3xl font-bold gradient-text">
-                {contact.firstName} {contact.lastName}
+{contact.firstName} {contact.lastName}
               </h1>
-              <p className="text-white/60 text-lg mt-1">{contact.jobTitle || "No job title"}</p>
+              <p className="text-gray-600 text-lg mt-1">{contact.jobTitle || "No job title"}</p>
               {contact.company && (
                 <p className="text-white/80 mt-1 flex items-center gap-2">
                   <ApperIcon name="Building2" size={16} />
@@ -215,7 +215,7 @@ const [sendingEmail, setSendingEmail] = useState(false);
               </h3>
               <div className="space-y-4">
                 <div>
-                  <label className="text-white/60 text-sm">Email</label>
+<label className="text-gray-600 text-sm">Email</label>
                   <p className="text-white mt-1">{contact.email}</p>
                 </div>
                 {contact.phone && (
@@ -249,21 +249,21 @@ const [sendingEmail, setSendingEmail] = useState(false);
               <div className="space-y-4">
                 <div>
                   <label className="text-white/60 text-sm">Last Contacted</label>
-                  <p className="text-white mt-1">
+<p className="text-gray-900 mt-1">
                     {contact.lastContacted
                       ? format(new Date(contact.lastContacted), "MMMM d, yyyy 'at' h:mm a")
                       : "Never"}
                   </p>
                 </div>
                 <div>
-                  <label className="text-white/60 text-sm">Created</label>
+<label className="text-gray-600 text-sm">Created</label>
                   <p className="text-white mt-1">
                     {format(new Date(contact.createdAt), "MMMM d, yyyy")}
                   </p>
                 </div>
                 <div>
                   <label className="text-white/60 text-sm">Last Updated</label>
-                  <p className="text-white mt-1">
+<p className="text-gray-900 mt-1">
                     {format(new Date(contact.updatedAt), "MMMM d, yyyy")}
                   </p>
                 </div>
