@@ -25,14 +25,6 @@ const ContactDetail = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [formLoading, setFormLoading] = useState(false);
 
-const [sendingEmail, setSendingEmail] = useState(false);
-
-  // Initialize ApperClient
-  const { ApperClient } = window.ApperSDK;
-  const apperClient = new ApperClient({
-    apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
-    apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
-  });
 
   const tabs = [
     { id: "overview", label: "Overview" },
@@ -85,39 +77,6 @@ const [sendingEmail, setSendingEmail] = useState(false);
     }
 };
 
-  const handleSendEmail = async () => {
-    if (!contact?.email) {
-      toast.error('Contact email address is required');
-      return;
-    }
-
-    setSendingEmail(true);
-    try {
-      const result = await apperClient.functions.invoke(import.meta.env.VITE_SEND_CONTACT_EMAIL, {
-        body: JSON.stringify({
-          contactId: contact.Id,
-          contactEmail: contact.email,
-          contactName: `${contact.firstName} ${contact.lastName}`.trim(),
-          contactCompany: contact.company
-        }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-
-      if (result.success) {
-        toast.success(`Email sent successfully to ${contact.email}`);
-      } else {
-        console.info(`apper_info: Got an error in this function: ${import.meta.env.VITE_SEND_CONTACT_EMAIL}. The response body is: ${JSON.stringify(result)}.`);
-        toast.error(result.error || 'Failed to send email');
-      }
-    } catch (error) {
-      console.info(`apper_info: Got this error an this function: ${import.meta.env.VITE_SEND_CONTACT_EMAIL}. The error is: ${error.message}`);
-      toast.error('Failed to send email. Please try again.');
-    } finally {
-      setSendingEmail(false);
-    }
-  };
 
   if (loading) {
     return <Loading type="detail" />;
@@ -169,14 +128,6 @@ const [sendingEmail, setSendingEmail] = useState(false);
             </div>
           </div>
 <div className="flex gap-3">
-<Button 
-              onClick={handleSendEmail} 
-              variant="purple"
-              disabled={sendingEmail}
-            >
-              <ApperIcon name={sendingEmail ? "Loader2" : "Mail"} size={16} />
-              {sendingEmail ? "Sending..." : "Send Email"}
-            </Button>
             <Button onClick={() => setIsEditModalOpen(true)} variant="secondary">
               <ApperIcon name="Edit2" size={16} />
               Edit
