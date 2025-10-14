@@ -84,7 +84,6 @@ function getSpecificity(pattern) {
 }
 
 function evaluateRule(rule, user) {
-  debugger;
     // Basic rules
     if (rule === "public") return true;
     if (rule === "authenticated") return user !== null && user !== undefined;
