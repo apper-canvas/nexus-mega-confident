@@ -87,7 +87,7 @@ function Root() {
     if (!authInitialized || !isInitialized) return;
 
     const config = getRouteConfig(location.pathname);
-    const { allowed, redirectTo, excludeRedirectQuery } = verifyRouteAccess(config, user);
+    const { allowed, redirectTo, excludeRedirectQuery } = verifyRouteAccess(config.allow, user);
 
     if (!allowed && redirectTo) {
       const redirectPath = excludeRedirectQuery
