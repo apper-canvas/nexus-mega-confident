@@ -84,7 +84,7 @@ className={cn(
                   JD
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate">John Doe</p>
+<p className="text-sm font-medium text-gray-900 truncate">John Doe</p>
                   <p className="text-xs text-gray-600 truncate">john@nexus.com</p>
                 </div>
               </div>
@@ -117,7 +117,7 @@ const MobileSidebar = ({ navItems }) => {
         <button
           onClick={() => setIsOpen(!isOpen)}
 className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-        >
+          >
           <ApperIcon name={isOpen ? "X" : "Menu"} size={24} className="text-gray-900" />
         </button>
       </div>
@@ -131,7 +131,7 @@ className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-className="fixed inset-0 bg-white/50 backdrop-blur-sm z-40 lg:hidden"
+className="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-40 lg:hidden"
             />
             <motion.div
               initial={{ x: "-100%" }}

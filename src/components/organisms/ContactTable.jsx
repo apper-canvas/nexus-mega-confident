@@ -108,7 +108,7 @@ const ContactTable = ({ contacts, onDelete }) => {
             {sortedContacts.map((contact) => (
               <tr
                 key={contact.Id}
-                className="border-b border-white/5 hover:bg-white/5 transition-colors cursor-pointer"
+className="border-b border-gray-200 hover:bg-gray-50 transition-colors cursor-pointer"
                 onClick={() => navigate(`/contacts/${contact.Id}`)}
               >
                 <td className="px-6 py-4">

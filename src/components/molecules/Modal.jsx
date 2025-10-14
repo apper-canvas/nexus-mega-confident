@@ -31,7 +31,7 @@ const Modal = ({ isOpen, onClose, title, children, size = "md", className }) => 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-className="fixed inset-0 bg-white/50 backdrop-blur-sm z-50"
+className="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-50"
           />
           <div className="fixed inset-0 z-50 overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4">
@@ -49,7 +49,7 @@ className="fixed inset-0 bg-white/50 backdrop-blur-sm z-50"
                 <div className="flex items-center justify-between mb-6">
 <h2 className="text-2xl font-semibold text-gray-900">{title}</h2>
                   <button
-                    onClick={onClose}
+onClick={onClose}
 className="text-gray-500 hover:text-gray-900 transition-colors"
                   >
                     <ApperIcon name="X" size={24} />
