@@ -20,7 +20,7 @@ const ContactTable = ({ contacts, onDelete }) => {
     const aValue = a[sortConfig.key] || "";
     const bValue = b[sortConfig.key] || "";
 
-    if (sortConfig.key === "lastContacted") {
+if (sortConfig.key === "last_contacted_c") {
       return sortConfig.direction === "asc"
         ? new Date(aValue) - new Date(bValue)
         : new Date(bValue) - new Date(aValue);
@@ -113,18 +113,18 @@ className="border-b border-gray-200 hover:bg-gray-50 transition-colors cursor-po
               >
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-3">
-                    <Avatar name={`${contact.firstName} ${contact.lastName}`} size="sm" />
+<Avatar name={`${contact.first_name_c} ${contact.last_name_c}`} size="sm" />
                     <span className="font-medium text-white">
-                      {contact.firstName} {contact.lastName}
+                      {contact.first_name_c} {contact.last_name_c}
                     </span>
                   </div>
                 </td>
-                <td className="px-6 py-4 text-white/70">{contact.email}</td>
-                <td className="px-6 py-4 text-white/70">{contact.company || "-"}</td>
-                <td className="px-6 py-4 text-white/70">{contact.jobTitle || "-"}</td>
+                <td className="px-6 py-4 text-white/70">{contact.email_c}</td>
+                <td className="px-6 py-4 text-white/70">{contact.company_c || "-"}</td>
+                <td className="px-6 py-4 text-white/70">{contact.job_title_c || "-"}</td>
                 <td className="px-6 py-4 text-white/70">
-                  {contact.lastContacted
-                    ? format(new Date(contact.lastContacted), "MMM d, yyyy")
+                  {contact.last_contacted_c
+                    ? format(new Date(contact.last_contacted_c), "MMM d, yyyy")
                     : "-"}
                 </td>
                 <td className="px-6 py-4 text-right">

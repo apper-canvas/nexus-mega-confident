@@ -4,33 +4,33 @@ import Textarea from "@/components/atoms/Textarea";
 import Button from "@/components/atoms/Button";
 
 const ContactForm = ({ contact, onSubmit, onCancel, loading }) => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    company: "",
-    jobTitle: "",
-    linkedin: "",
-    notes: "",
-    tags: [],
+const [formData, setFormData] = useState({
+    first_name_c: "",
+    last_name_c: "",
+    email_c: "",
+    phone_c: "",
+    company_c: "",
+    job_title_c: "",
+    linkedin_c: "",
+    notes_c: "",
+    tags_c: "",
   });
 
   const [errors, setErrors] = useState({});
   const [tagInput, setTagInput] = useState("");
 
   useEffect(() => {
-    if (contact) {
+if (contact) {
       setFormData({
-        firstName: contact.firstName || "",
-        lastName: contact.lastName || "",
-        email: contact.email || "",
-        phone: contact.phone || "",
-        company: contact.company || "",
-        jobTitle: contact.jobTitle || "",
-        linkedin: contact.linkedin || "",
-        notes: contact.notes || "",
-        tags: contact.tags || [],
+        first_name_c: contact.first_name_c || "",
+        last_name_c: contact.last_name_c || "",
+        email_c: contact.email_c || "",
+        phone_c: contact.phone_c || "",
+        company_c: contact.company_c || "",
+        job_title_c: contact.job_title_c || "",
+        linkedin_c: contact.linkedin_c || "",
+        notes_c: contact.notes_c || "",
+        tags_c: contact.tags_c || "",
       });
     }
   }, [contact]);

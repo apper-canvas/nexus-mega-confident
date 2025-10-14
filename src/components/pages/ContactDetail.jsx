@@ -115,16 +115,16 @@ const handleDelete = async () => {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex items-center gap-6">
 <Avatar
-              name={`${contact.firstName} ${contact.lastName}`}
+name={`${contact.first_name_c} ${contact.last_name_c}`}
               size="xl"
-              imageUrl={contact.imageUrl}
+              imageUrl={contact.image_url_c}
             />
             <div>
               <h1 className="text-3xl font-bold gradient-text">
-{contact.firstName} {contact.lastName}
+{contact.first_name_c} {contact.last_name_c}
               </h1>
-              <p className="text-gray-600 text-lg mt-1">{contact.jobTitle || "No job title"}</p>
-              {contact.company && (
+              <p className="text-gray-600 text-lg mt-1">{contact.job_title_c || "No job title"}</p>
+              {contact.company_c && (
                 <p className="text-white/80 mt-1 flex items-center gap-2">
                   <ApperIcon name="Building2" size={16} />
                   {contact.company}
@@ -173,19 +173,19 @@ const handleDelete = async () => {
 <div className="space-y-4">
                 <div>
                   <label className="text-white/60 text-sm">Email</label>
-                  <p className="text-white mt-1">{contact.email}</p>
+<p className="text-white mt-1">{contact.email_c}</p>
                 </div>
-                {contact.phone && (
+                {contact.phone_c && (
                   <div>
                     <label className="text-white/60 text-sm">Phone</label>
-                    <p className="text-white mt-1">{contact.phone}</p>
+                    <p className="text-white mt-1">{contact.phone_c}</p>
                   </div>
                 )}
-                {contact.linkedin && (
+                {contact.linkedin_c && (
                   <div>
                     <label className="text-white/60 text-sm">LinkedIn</label>
                     <a
-                      href={contact.linkedin}
+                      href={contact.linkedin_c}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary hover:text-accent transition-colors mt-1 block"
@@ -205,50 +205,50 @@ const handleDelete = async () => {
               </h3>
               <div className="space-y-4">
 <div>
-                  <label className="text-white/60 text-sm">Last Contacted</label>
+<label className="text-white/60 text-sm">Last Contacted</label>
                   <p className="text-white mt-1">
-                    {contact.lastContacted
-                      ? format(new Date(contact.lastContacted), "MMMM d, yyyy 'at' h:mm a")
+                    {contact.last_contacted_c
+                      ? format(new Date(contact.last_contacted_c), "MMMM d, yyyy 'at' h:mm a")
                       : "Never"}
                   </p>
                 </div>
                 <div>
                   <label className="text-white/60 text-sm">Created</label>
                   <p className="text-white mt-1">
-                    {format(new Date(contact.createdAt), "MMMM d, yyyy")}
+                    {format(new Date(contact.CreatedOn), "MMMM d, yyyy")}
                   </p>
                 </div>
                 <div>
                   <label className="text-white/60 text-sm">Last Updated</label>
                   <p className="text-white mt-1">
-                    {format(new Date(contact.updatedAt), "MMMM d, yyyy")}
+                    {format(new Date(contact.ModifiedOn), "MMMM d, yyyy")}
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Notes */}
-            {contact.notes && (
+{contact.notes_c && (
               <div className="glass-card p-6 md:col-span-2">
                 <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                   <ApperIcon name="FileText" size={20} className="text-primary" />
                   Notes
                 </h3>
-                <p className="text-white/80 whitespace-pre-wrap">{contact.notes}</p>
+                <p className="text-white/80 whitespace-pre-wrap">{contact.notes_c}</p>
               </div>
             )}
 
             {/* Tags */}
-            {contact.tags && contact.tags.length > 0 && (
+{contact.tags_c && contact.tags_c.length > 0 && (
               <div className="glass-card p-6 md:col-span-2">
                 <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                   <ApperIcon name="Tag" size={20} className="text-primary" />
                   Tags
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {contact.tags.map((tag) => (
-                    <Badge key={tag} variant="primary">
-                      {tag}
+                  {contact.tags_c.split(',').map((tag) => (
+                    <Badge key={tag.trim()} variant="primary">
+                      {tag.trim()}
                     </Badge>
                   ))}
                 </div>

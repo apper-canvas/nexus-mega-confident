@@ -27,13 +27,13 @@ const Contacts = () => {
   }, []);
 
   useEffect(() => {
-    if (searchQuery) {
+if (searchQuery) {
       const query = searchQuery.toLowerCase();
       const filtered = contacts.filter((contact) =>
-        `${contact.firstName} ${contact.lastName}`.toLowerCase().includes(query) ||
-        contact.email.toLowerCase().includes(query) ||
-        (contact.company && contact.company.toLowerCase().includes(query)) ||
-        (contact.jobTitle && contact.jobTitle.toLowerCase().includes(query))
+        `${contact.first_name_c} ${contact.last_name_c}`.toLowerCase().includes(query) ||
+        contact.email_c.toLowerCase().includes(query) ||
+        (contact.company_c && contact.company_c.toLowerCase().includes(query)) ||
+        (contact.job_title_c && contact.job_title_c.toLowerCase().includes(query))
       );
       setFilteredContacts(filtered);
     } else {
