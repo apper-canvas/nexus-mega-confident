@@ -86,8 +86,7 @@ function getSpecificity(pattern) {
 function evaluateRule(rule, user) {
     // Basic rules
     if (rule === "public") return true;
-    if (rule === "authenticated") return !!user;
-
+    if (rule === "authenticated") return user !== null && user !== undefined;
     return evaluateDynamicRule(rule, user);
 }
 

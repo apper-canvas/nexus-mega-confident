@@ -4,6 +4,7 @@ const initialState = {
   user: null,
   isAuthenticated: false,
   isInitialized: false,
+  authCheckComplete: false,
 };
 
 export const userSlice = createSlice({
@@ -14,10 +15,16 @@ export const userSlice = createSlice({
       state.user = JSON.parse(JSON.stringify(action.payload));
       state.isAuthenticated = !!action.payload;
       state.isInitialized = true;
+      state.authCheckComplete = true;
     },
     clearUser: (state) => {
       state.user = null;
       state.isAuthenticated = false;
+      state.isInitialized = true;
+      state.authCheckComplete = true;
+    },
+    setAuthCheckComplete: (state) => {
+      state.authCheckComplete = true;
       state.isInitialized = true;
     },
   },
