@@ -111,7 +111,7 @@ if (searchQuery) {
   }
 
   return (
-<div className="space-y-4">
+<div className="bg-gradient-to-r from-[#0F172A] via-[#1E3A8A] to-[#1E40AF] rounded-xl p-8 mb-6 shadow-lg">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -119,9 +119,9 @@ if (searchQuery) {
 className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3"
       >
         <div>
-<h1 className="text-3xl font-bold text-gray-900">Contacts</h1>
-          <p className="text-gray-600 mt-1">
-            Manage your customer relationships and connections
+<h1 className="text-3xl font-bold text-white">Contacts</h1>
+            <p className="text-blue-100 mt-1">
+              Manage your customer relationships and connections
           </p>
         </div>
         <Button onClick={openCreateModal} variant="primary">

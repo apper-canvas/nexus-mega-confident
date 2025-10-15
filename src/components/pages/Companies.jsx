@@ -8,8 +8,8 @@ const Companies = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <h1 className="text-3xl font-bold gradient-text">Companies</h1>
-        <p className="text-white/60 mt-1">Manage your business accounts and organizations</p>
+<h1 className="text-3xl font-bold text-white">Companies</h1>
+          <p className="text-blue-100 mt-1">Manage your business accounts and organizations</p>
       </motion.div>
 
       <motion.div

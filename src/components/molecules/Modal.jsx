@@ -30,8 +30,8 @@ const Modal = ({ isOpen, onClose, title, children, size = "md", className }) => 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={onClose}
-className="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-50"
+onClick={onClose}
+              className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50"
           />
           <div className="fixed inset-0 z-50 overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4">
@@ -41,8 +41,8 @@ className="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-50"
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
                 className={cn(
-"w-full bg-white border border-border rounded-xl p-6 relative shadow-card",
-                  sizes[size],
+"w-full bg-white border border-slate-300 rounded-xl p-6 relative shadow-2xl",
+                    sizes[size],
                   className
                 )}
               >
@@ -50,7 +50,7 @@ className="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-50"
                   <h2 className="text-2xl font-semibold text-text-primary">{title}</h2>
                   <button
 onClick={onClose}
-className="text-gray-500 hover:text-gray-900 transition-colors"
+                  className="text-slate-500 hover:text-slate-900 transition-colors"
                   >
                     <ApperIcon name="X" size={24} />
                   </button>

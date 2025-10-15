@@ -15,15 +15,15 @@ const Dashboard = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-className="bg-white border border-border rounded-xl p-8 shadow-card"
-      >
+className="bg-gradient-to-r from-[#0F172A] via-[#1E3A8A] to-[#1E40AF] rounded-xl p-8 shadow-xl"
+        >
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-4xl font-bold text-text-primary mb-2">Welcome back, John!</h1>
-            <p className="text-text-secondary text-lg">Here's what's happening with your business today.</p>
+<h1 className="text-4xl font-bold text-white mb-2">Welcome back, John!</h1>
+              <p className="text-blue-100 text-lg">Here's what's happening with your business today.</p>
           </div>
-          <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center">
-            <ApperIcon name="Sparkles" size={32} className="text-white" />
+<div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center shadow-lg">
+              <ApperIcon name="Sparkles" size={32} className="text-white" />
           </div>
         </div>
       </motion.div>
@@ -36,47 +36,47 @@ className="bg-white border border-border rounded-xl p-8 shadow-card"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="bg-white border border-border rounded-xl p-6 shadow-card hover:shadow-lg transition-shadow duration-200"
-          >
+className="bg-white border border-slate-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-200 hover:border-blue-300"
+            >
             <div className="flex items-start justify-between mb-4">
               <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${metric.color} flex items-center justify-center`}>
                 <ApperIcon name={metric.icon} size={24} className="text-white" />
               </div>
             </div>
-            <p className="text-text-secondary text-sm mb-1">{metric.label}</p>
-            <p className="text-4xl font-bold text-text-primary">{metric.value}</p>
+<p className="text-slate-600 text-sm mb-1">{metric.label}</p>
+              <p className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">{metric.value}</p>
           </motion.div>
         ))}
       </div>
 
       {/* Activity Feed Placeholder */}
 <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4 }}
-        className="bg-white border border-border rounded-xl p-8 shadow-card"
-      >
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="bg-white border border-slate-200 rounded-xl p-8 shadow-lg"
+        >
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-semibold text-text-primary">Recent Activity</h2>
           <ApperIcon name="Activity" size={24} className="text-primary" />
         </div>
         <div className="flex flex-col items-center justify-center py-16">
-          <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-            <ApperIcon name="Clock" size={40} className="text-primary" />
-          </div>
-          <h3 className="text-xl font-semibold text-text-primary mb-2">Activity Feed Coming Soon</h3>
-          <p className="text-text-secondary text-center max-w-md">
+<div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+              <ApperIcon name="Clock" size={40} className="text-blue-600" />
+            </div>
+<h3 className="text-xl font-semibold text-slate-900 mb-2">Activity Feed Coming Soon</h3>
+<p className="text-slate-600 text-center max-w-md">
             Track all your recent interactions, deals, and important events in one place.
           </p>
         </div>
       </motion.div>
 {/* Charts Overview */}
-      <motion.div
-initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-        className="bg-white border border-border rounded-xl p-8 shadow-card"
-      >
+<motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="bg-white border border-slate-200 rounded-xl p-8 shadow-lg"
+        >
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-semibold text-text-primary">Key Metrics</h2>
           <ApperIcon name="BarChart3" size={24} className="text-primary" />
@@ -105,8 +105,8 @@ initial={{ opacity: 0, y: 20 }}
               color: "from-pink-500 to-rose-500"
             }
           ].map((chart, index) => (
-            <div key={chart.title} className="bg-white border border-border rounded-xl p-6 shadow-card">
-              <div className="flex items-center justify-between mb-4">
+<div key={chart.title} className="bg-white border border-slate-200 rounded-xl p-6 shadow-lg">
+                <div className="flex items-center justify-between mb-4">
                 <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${chart.color} flex items-center justify-center`}>
                   <ApperIcon name={chart.icon} size={20} className="text-white" />
                 </div>
@@ -115,7 +115,7 @@ initial={{ opacity: 0, y: 20 }}
                   <p className="text-text-secondary text-sm">{chart.description}</p>
                 </div>
               </div>
-              <h3 className="text-text-primary font-medium">{chart.title}</h3>
+<h3 className="text-slate-900 font-medium">{chart.title}</h3>
             </div>
           ))}
         </div>
@@ -133,9 +133,9 @@ initial={{ opacity: 0, y: 20 }}
           { icon: "Building2", label: "Add Company", desc: "Register a new company", color: "secondary" },
           { icon: "TrendingUp", label: "Create Deal", desc: "Start tracking a new deal", color: "accent" },
         ].map((action, index) => (
-          <div
-            key={action.label}
-            className="bg-white border border-border rounded-xl p-6 shadow-card hover:shadow-lg transition-shadow duration-200 cursor-pointer"
+<div
+              key={action.label}
+              className="bg-white border border-slate-200 rounded-xl p-6 shadow-lg hover:shadow-xl hover:border-blue-300 transition-all duration-200 cursor-pointer"
           >
             <div className={`w-12 h-12 rounded-lg bg-${action.color}/20 flex items-center justify-center mb-4`}>
               <ApperIcon name={action.icon} size={24} className={`text-${action.color}`} />

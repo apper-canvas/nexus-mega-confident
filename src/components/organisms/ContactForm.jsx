@@ -165,7 +165,7 @@ label="Notes"
       />
 
 <div className="space-y-1.5">
-        <label className="block text-sm font-medium text-white/80">Tags</label>
+          <label className="block text-sm font-medium text-slate-700">Tags</label>
         <div className="flex gap-2">
           <Input
             value={tagInput}

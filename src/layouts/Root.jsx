@@ -113,8 +113,8 @@ function Root() {
 
   if (!authInitialized || !isInitialized) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <Loading />
+<div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50">
+          <Loading />
       </div>
     );
   }
@@ -128,7 +128,7 @@ function Root() {
 
   return (
 <AuthContext.Provider value={authMethods}>
-      <div className="min-h-screen bg-white">
+<div className="min-h-screen bg-slate-50">
         {!isAuthPage && <Sidebar />}
         <main className={!isAuthPage ? "lg:ml-60 p-6 lg:p-8 pt-20 lg:pt-8" : ""}>
           <div className={!isAuthPage ? "max-w-[1400px] mx-auto" : ""}>

@@ -1,6 +1,6 @@
-import { useState } from "react";
-import ApperIcon from "@/components/ApperIcon";
+import React, { useState } from "react";
 import { cn } from "@/utils/cn";
+import ApperIcon from "@/components/ApperIcon";
 
 const SearchBar = ({ placeholder = "Search...", onSearch, className }) => {
   const [value, setValue] = useState("");
@@ -18,24 +18,24 @@ const SearchBar = ({ placeholder = "Search...", onSearch, className }) => {
 
   return (
     <div className={cn("relative", className)}>
-      <ApperIcon 
+<ApperIcon 
         name="Search" 
         size={18} 
-        className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40"
+        className="absolute left-3 top-1/2 -translate-y-1/2 text-blue-300"
       />
       <input
         type="text"
         value={value}
         onChange={handleChange}
         placeholder={placeholder}
-        className="w-full pl-10 pr-10 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+        className="w-full pl-10 pr-10 py-2.5 bg-blue-900/20 border border-blue-700/30 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-200"
       />
       {value && (
         <button
-          onClick={handleClear}
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors"
-        >
-          <ApperIcon name="X" size={16} />
+onClick={handleClear}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-blue-300 hover:text-white transition-colors"
+          >
+            <ApperIcon name="X" size={16} />
         </button>
       )}
     </div>

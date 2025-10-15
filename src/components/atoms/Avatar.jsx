@@ -17,19 +17,19 @@ const Avatar = ({ name = "", size = "md", className, imageUrl }) => {
   };
 
   if (imageUrl) {
-    return (
-      <div className={cn("rounded-full overflow-hidden border-2 border-primary/50", sizes[size], className)}>
+return (
+        <div className={cn("rounded-full overflow-hidden border-2 border-blue-400/50 shadow-lg", sizes[size], className)}>
         <img src={imageUrl} alt={name} className="w-full h-full object-cover" />
       </div>
     );
   }
 
   return (
-    <div className={cn(
-      "rounded-full flex items-center justify-center font-semibold",
-      "bg-gradient-to-br from-primary to-secondary text-white",
-      "border-2 border-primary/50 shadow-glow",
-      sizes[size],
+<div className={cn(
+        "rounded-full flex items-center justify-center font-semibold",
+        "bg-gradient-to-br from-blue-600 to-blue-700 text-white",
+        "border-2 border-blue-400/50 shadow-lg",
+        sizes[size],
       className
     )}>
       {getInitials(name)}

@@ -4,23 +4,23 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
-extend: {
+theme: {
+    extend: {
       colors: {
-        primary: "#2563EB",
-        secondary: "#3B82F6",
-        accent: "#60A5FA",
+        primary: "#1E40AF",
+        secondary: "#2563EB",
+        accent: "#3B82F6",
         sidebar: {
-          bg: "#F9FAFB",
-          active: "#E0F2FE",
+          bg: "#0F172A",
+          active: "#1E3A8A",
         },
         text: {
-          primary: "#1F2937",
-          secondary: "#6B7280",
+          primary: "#1E293B",
+          secondary: "#475569",
         },
-        border: "#E5E7EB",
-        surface: "#FFFFFF",
-        background: "#FFFFFF",
+        border: "#CBD5E1",
+        surface: "#F8FAFC",
+        background: "#F1F5F9",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],

@@ -49,97 +49,97 @@ if (sortConfig.key === "last_contacted_c") {
   };
 
   return (
-    <div className="glass-card overflow-hidden">
+<div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-lg">
       <div className="overflow-x-auto">
         <table className="w-full">
 <thead>
-            <tr className="border-b border-gray-200">
+<tr className="bg-gradient-to-r from-[#1E3A8A] to-[#2563EB] border-b border-blue-700">
 <th className="px-4 py-3 text-left">
-                <button
-                  onClick={() => handleSort("firstName")}
-                  className="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors"
-                >
-                  Name
-                  <SortIcon columnKey="firstName" />
-                </button>
-              </th>
-<th className="px-4 py-3 text-left">
-                <button
-                  onClick={() => handleSort("email")}
-                  className="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors"
-                >
-                  Email
-                  <SortIcon columnKey="email" />
-                </button>
-              </th>
-<th className="px-4 py-3 text-left">
-                <button
-                  onClick={() => handleSort("company")}
-                  className="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors"
-                >
-                  Company
-                  <SortIcon columnKey="company" />
-                </button>
-              </th>
-<th className="px-4 py-3 text-left">
-                <button
-                  onClick={() => handleSort("jobTitle")}
-                  className="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors"
-                >
-                  Job Title
-                  <SortIcon columnKey="jobTitle" />
-                </button>
-              </th>
-<th className="px-4 py-3 text-left">
-                <button
-                  onClick={() => handleSort("lastContacted")}
-                  className="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors"
-                >
-                  Last Contacted
-                  <SortIcon columnKey="lastContacted" />
-                </button>
-              </th>
-<th className="px-4 py-3 text-right">
-                <span className="text-sm font-semibold text-gray-700">Actions</span>
-              </th>
+                  <button
+                    onClick={() => handleSort("firstName")}
+                    className="flex items-center gap-2 text-sm font-semibold text-white hover:text-blue-100 transition-colors"
+                  >
+                    Name
+                    <SortIcon columnKey="firstName" />
+                  </button>
+                </th>
+                <th className="px-4 py-3 text-left">
+                  <button
+                    onClick={() => handleSort("email")}
+                    className="flex items-center gap-2 text-sm font-semibold text-white hover:text-blue-100 transition-colors"
+                  >
+                    Email
+                    <SortIcon columnKey="email" />
+                  </button>
+                </th>
+                <th className="px-4 py-3 text-left">
+                  <button
+                    onClick={() => handleSort("company")}
+                    className="flex items-center gap-2 text-sm font-semibold text-white hover:text-blue-100 transition-colors"
+                  >
+                    Company
+                    <SortIcon columnKey="company" />
+                  </button>
+                </th>
+                <th className="px-4 py-3 text-left">
+                  <button
+                    onClick={() => handleSort("jobTitle")}
+                    className="flex items-center gap-2 text-sm font-semibold text-white hover:text-blue-100 transition-colors"
+                  >
+                    Job Title
+                    <SortIcon columnKey="jobTitle" />
+                  </button>
+                </th>
+                <th className="px-4 py-3 text-left">
+                  <button
+                    onClick={() => handleSort("lastContacted")}
+                    className="flex items-center gap-2 text-sm font-semibold text-white hover:text-blue-100 transition-colors"
+                  >
+                    Last Contacted
+                    <SortIcon columnKey="lastContacted" />
+                  </button>
+                </th>
+                <th className="px-4 py-3 text-right">
+                  <span className="text-sm font-semibold text-white">Actions</span>
+                </th>
             </tr>
           </thead>
           <tbody>
             {sortedContacts.map((contact) => (
               <tr
                 key={contact.Id}
-className="border-b border-gray-200 hover:bg-gray-100/50 transition-colors cursor-pointer"
-                onClick={() => navigate(`/contacts/${contact.Id}`)}
+className="border-b border-slate-200 hover:bg-blue-50 transition-colors cursor-pointer"
+                  onClick={() => navigate(`/contacts/${contact.Id}`)}
               >
 <td className="px-4 py-3">
                   <div className="flex items-center gap-3">
                     <Avatar name={`${contact.first_name_c} ${contact.last_name_c}`} size="sm" />
-                    <span className="font-medium text-gray-900">
-                      {contact.first_name_c} {contact.last_name_c}
+<span className="font-medium text-slate-900">
+                        {contact.first_name_c} {contact.last_name_c}
                     </span>
                   </div>
                 </td>
-<td className="px-4 py-3 text-gray-600">{contact.email_c}</td>
-<td className="px-4 py-3 text-gray-600">{contact.company_c || "-"}</td>
-<td className="px-4 py-3 text-gray-600">{contact.job_title_c || "-"}</td>
-<td className="px-4 py-3 text-gray-600">
-                  {contact.last_contacted_c
+<td className="px-4 py-3 text-slate-700">{contact.email_c}</td>
+                  <td className="px-4 py-3 text-slate-700">{contact.company_c || "-"}</td>
+                  <td className="px-4 py-3 text-slate-700">{contact.job_title_c || "-"}</td>
+                  <td className="px-4 py-3 text-slate-700">
+                    {contact.last_contacted_c
                     ? format(new Date(contact.last_contacted_c), "MMM d, yyyy")
                     : "-"}
                 </td>
 <td className="px-4 py-3 text-right">
-<button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      if (window.confirm("Are you sure you want to delete this contact?")) {
-                        onDelete(contact.Id);
-                      }
-                    }}
-                    className="p-2 hover:bg-red-500/10 rounded-lg transition-colors text-gray-600 hover:text-red-500"
-                  >
-                    <ApperIcon name="Trash2" size={16} />
-                  </button>
-                </td>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (window.confirm("Are you sure you want to delete this contact?")) {
+                          onDelete(contact.Id);
+                        }
+                      }}
+                      className="p-2 hover:bg-red-500/10 rounded-lg transition-colors text-slate-600 hover:text-red-500"
+                    >
+                      <ApperIcon name="Trash2" size={16} />
+                    </button>
+                  </td>
               </tr>
             ))}
           </tbody>

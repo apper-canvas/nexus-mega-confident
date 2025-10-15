@@ -21,28 +21,28 @@ const navItems = [
     <>
       {/* Desktop Sidebar */}
 <motion.div
-        className={cn(
-          "hidden lg:block fixed left-0 top-0 h-screen bg-sidebar-bg border-r border-border/60 transition-all duration-300 z-40 shadow-sm",
-          isCollapsed ? "w-20" : "w-60"
-        )}
+className={cn(
+            "hidden lg:block fixed left-0 top-0 h-screen bg-gradient-to-b from-[#0F172A] to-[#1E293B] border-r border-slate-700/50 transition-all duration-300 z-40 shadow-xl",
+            isCollapsed ? "w-20" : "w-60"
+          )}
       >
 <div className="flex flex-col h-full p-4">
           {/* Logo */}
 <div className="flex items-center justify-between mb-8">
-            {!isCollapsed && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="flex items-center gap-2"
-              >
-                <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                  <ApperIcon name="Users" size={20} className="text-white" />
-                </div>
-                <div>
-                  <h1 className="text-base font-semibold text-text-primary">Nexus CRM</h1>
-                  <span className="text-xs text-text-secondary">v1.0.0</span>
-                </div>
-              </motion.div>
+              {!isCollapsed && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="flex items-center gap-2"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg">
+                    <ApperIcon name="Users" size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <h1 className="text-base font-semibold text-white">Nexus CRM</h1>
+                    <span className="text-xs text-blue-300">v1.0.0</span>
+                  </div>
+                </motion.div>
             )}
             <button
               onClick={() => setIsCollapsed(!isCollapsed)}
@@ -62,14 +62,14 @@ const navItems = [
               <NavLink
                 key={item.to}
                 to={item.to}
-                className={({ isActive }) =>
-                  cn(
-                    "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200",
-                    "hover:bg-sidebar-active",
-                    isActive
-                      ? "sidebar-active text-primary font-medium"
-                      : "text-text-secondary"
-                  )
+className={({ isActive }) =>
+                    cn(
+                      "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200",
+                      "hover:bg-blue-900/50",
+                      isActive
+                        ? "bg-blue-800 text-white font-medium shadow-lg"
+                        : "text-slate-300 hover:text-white"
+                    )
                 }
               >
                 <ApperIcon name={item.icon} size={20} />
@@ -85,16 +85,16 @@ const navItems = [
               animate={{ opacity: 1 }}
               className="pt-4 border-t border-border"
             >
-<div className="flex items-center gap-3 px-3 py-3 rounded-xl bg-surface border border-border/50 shadow-card">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-semibold text-sm shadow-sm">
-                  JD
+<div className="flex items-center gap-3 px-3 py-3 rounded-xl bg-blue-900/30 border border-blue-700/50 shadow-lg">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-semibold text-sm shadow-lg">
+                    JD
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-semibold text-white truncate">John Doe</p>
+                    <p className="text-xs text-blue-300 truncate">john@nexus.com</p>
+                  </div>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-semibold text-text-primary truncate">John Doe</p>
-                  <p className="text-xs text-text-secondary/80 truncate">john@nexus.com</p>
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
           )}
         </div>
       </motion.div>
@@ -113,15 +113,15 @@ const MobileSidebar = ({ navItems }) => {
   return (
     <>
       {/* Mobile Header */}
-<div className="fixed top-0 left-0 right-0 h-16 bg-surface border-b border-border/60 flex items-center justify-between px-4 z-50 shadow-sm">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-sm">
-            <ApperIcon name="Users" size={20} className="text-white" />
-          </div>
-          <div>
-            <h1 className="text-base font-bold text-text-primary">Nexus CRM</h1>
-            <span className="text-xs text-text-secondary/70 font-medium">v1.0.0</span>
-          </div>
+<div className="fixed top-0 left-0 right-0 h-16 bg-gradient-to-r from-[#0F172A] to-[#1E3A8A] border-b border-slate-700/50 flex items-center justify-between px-4 z-50 shadow-lg">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg">
+              <ApperIcon name="Users" size={20} className="text-white" />
+            </div>
+            <div>
+              <h1 className="text-base font-bold text-white">Nexus CRM</h1>
+              <span className="text-xs text-blue-200 font-medium">v1.0.0</span>
+            </div>
         </div>
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -139,29 +139,29 @@ const MobileSidebar = ({ navItems }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-gray-900/50 z-40 lg:hidden"
-            />
-            <motion.div
-              initial={{ x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
-transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed left-0 top-16 bottom-0 w-64 bg-sidebar-bg border-r border-border/60 z-40 lg:hidden shadow-lg"
-            >
+onClick={() => setIsOpen(false)}
+                className="fixed inset-0 bg-slate-900/70 z-40 lg:hidden backdrop-blur-sm"
+              />
+              <motion.div
+                initial={{ x: "-100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "-100%" }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                className="fixed left-0 top-16 bottom-0 w-64 bg-gradient-to-b from-[#0F172A] to-[#1E293B] border-r border-slate-700/50 z-40 lg:hidden shadow-xl"
+              >
               <nav className="p-4 space-y-1">
                 {navItems.map((item) => (
                   <NavLink
                     key={item.to}
                     to={item.to}
-                    onClick={() => setIsOpen(false)}
-                    className={({ isActive }) =>
-                      cn(
-                        "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200",
-                        "hover:bg-sidebar-active",
-                        isActive
-                          ? "sidebar-active text-primary font-medium"
-                          : "text-text-secondary"
+onClick={() => setIsOpen(false)}
+                      className={({ isActive }) =>
+                        cn(
+                          "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200",
+                          "hover:bg-blue-900/50",
+                          isActive
+                            ? "bg-blue-800 text-white font-medium shadow-lg"
+                            : "text-slate-300 hover:text-white"
                       )
                     }
                   >

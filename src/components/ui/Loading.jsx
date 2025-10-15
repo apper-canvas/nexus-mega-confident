@@ -32,11 +32,11 @@ const Loading = ({ type = "card" }) => {
         animate={{ opacity: 1 }}
       >
         <motion.div
-          className="w-16 h-16 border-4 border-primary/30 border-t-primary rounded-full"
+className="w-16 h-16 border-4 border-blue-200 border-t-blue-600 rounded-full"
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
         />
-        <p className="text-text-secondary text-sm">Loading...</p>
+<p className="text-slate-600 text-sm">Loading...</p>
       </motion.div>
     </div>
   );

@@ -10,8 +10,8 @@ const Analytics = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <h1 className="text-3xl font-bold gradient-text">Analytics</h1>
-        <p className="text-white/60 mt-1">Gain insights into your business performance</p>
+<h1 className="text-3xl font-bold text-white">Analytics</h1>
+          <p className="text-blue-100 mt-1">Gain insights into your business performance</p>
       </motion.div>
 
       <motion.div
@@ -40,7 +40,7 @@ const Analytics = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="glass-card p-6"
+className="bg-gradient-to-br from-[#1E3A8A] to-[#1E40AF] border border-blue-700 rounded-xl p-6 shadow-xl"
           >
             <div className="flex items-center justify-between mb-6">
               <div>
@@ -64,8 +64,8 @@ const Analytics = () => {
                     toolbar: { show: false }
                   },
                   theme: { mode: 'dark' },
-                  colors: ['#10B981'],
-                  stroke: {
+colors: ['#3B82F6'],
+                    stroke: {
                     curve: 'smooth',
                     width: 3
                   },
@@ -84,10 +84,10 @@ const Analytics = () => {
                   },
                   xaxis: {
                     categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                    labels: { style: { colors: '#9CA3AF' } }
+labels: { style: { colors: '#E0F2FE' } }
                   },
                   yaxis: {
-                    labels: { style: { colors: '#9CA3AF' } }
+labels: { style: { colors: '#E0F2FE' } }
                   },
                   tooltip: {
                     theme: 'dark',
@@ -124,12 +124,12 @@ const Analytics = () => {
                     background: 'transparent'
                   },
                   theme: { mode: 'dark' },
-                  colors: ['#10B981', '#F59E0B', '#EF4444'],
-                  labels: ['Won', 'In Progress', 'Lost'],
+colors: ['#3B82F6', '#60A5FA', '#93C5FD'],
+                    labels: ['Won', 'In Progress', 'Lost'],
                   legend: {
                     position: 'bottom',
-                    labels: { colors: '#9CA3AF' }
-                  },
+labels: { colors: '#E0F2FE' }
+                    },
                   plotOptions: {
                     pie: {
                       donut: {
@@ -194,8 +194,8 @@ const Analytics = () => {
                     toolbar: { show: false }
                   },
                   theme: { mode: 'dark' },
-                  colors: ['#EC4899'],
-                  plotOptions: {
+colors: ['#60A5FA'],
+                    plotOptions: {
                     bar: {
                       borderRadius: 6,
                       columnWidth: '50%'
@@ -207,11 +207,11 @@ const Analytics = () => {
                   },
                   xaxis: {
                     categories: ['Calls', 'Emails', 'Meetings', 'Tasks', 'Notes', 'Demos', 'Follow-ups'],
-                    labels: { style: { colors: '#9CA3AF' } }
-                  },
+labels: { style: { colors: '#E0F2FE' } }
+                    },
                   yaxis: {
-                    labels: { style: { colors: '#9CA3AF' } }
-                  },
+labels: { style: { colors: '#E0F2FE' } }
+                    },
                   tooltip: {
                     theme: 'dark',
                     style: { fontSize: '12px' }
