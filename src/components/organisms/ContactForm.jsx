@@ -13,7 +13,7 @@ const [formData, setFormData] = useState({
     job_title_c: "",
     linkedin_c: "",
     notes_c: "",
-    tags_c: "",
+    tags_c: [],
   });
 
   const [errors, setErrors] = useState({});
@@ -30,7 +30,7 @@ if (contact) {
         job_title_c: contact.job_title_c || "",
         linkedin_c: contact.linkedin_c || "",
         notes_c: contact.notes_c || "",
-        tags_c: contact.tags_c || "",
+        tags_c: contact.tags_c ? contact.tags_c.split(',').filter(Boolean) : [],
       });
     }
   }, [contact]);
@@ -38,16 +38,16 @@ if (contact) {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = "First name is required";
+if (!formData.first_name_c.trim()) {
+      newErrors.first_name_c = "First name is required";
     }
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = "Last name is required";
+    if (!formData.last_name_c.trim()) {
+      newErrors.last_name_c = "Last name is required";
     }
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
+    if (!formData.email_c.trim()) {
+      newErrors.email_c = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email_c)) {
+      newErrors.email_c = "Please enter a valid email address";
     }
 
     setErrors(newErrors);
@@ -63,26 +63,30 @@ if (contact) {
   };
 
   const handleAddTag = () => {
-    if (tagInput.trim() && !formData.tags.includes(tagInput.trim())) {
+if (tagInput.trim() && !formData.tags_c.includes(tagInput.trim())) {
       setFormData((prev) => ({
         ...prev,
-        tags: [...prev.tags, tagInput.trim()],
+        tags_c: [...prev.tags_c, tagInput.trim()],
       }));
       setTagInput("");
     }
   };
 
   const handleRemoveTag = (tagToRemove) => {
-    setFormData((prev) => ({
+setFormData((prev) => ({
       ...prev,
-      tags: prev.tags.filter((tag) => tag !== tagToRemove),
+      tags_c: prev.tags_c.filter((tag) => tag !== tagToRemove),
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      onSubmit(formData);
+if (validateForm()) {
+      const submissionData = {
+        ...formData,
+        tags_c: formData.tags_c.join(',')
+      };
+      onSubmit(submissionData);
     }
   };
 
@@ -91,70 +95,70 @@ if (contact) {
       <div className="grid grid-cols-2 gap-4">
         <Input
           label="First Name"
-          name="firstName"
-          value={formData.firstName}
+name="first_name_c"
+          value={formData.first_name_c}
           onChange={handleChange}
-          error={errors.firstName}
+          error={errors.first_name_c}
           required
           autoFocus
         />
         <Input
           label="Last Name"
-          name="lastName"
-          value={formData.lastName}
+          name="last_name_c"
+          value={formData.last_name_c}
           onChange={handleChange}
-          error={errors.lastName}
+          error={errors.last_name_c}
           required
         />
       </div>
 
-      <Input
+<Input
         label="Email"
-        name="email"
+        name="email_c"
         type="email"
-        value={formData.email}
+        value={formData.email_c}
         onChange={handleChange}
-        error={errors.email}
+        error={errors.email_c}
         required
       />
 
       <Input
-        label="Phone"
-        name="phone"
+label="Phone"
+        name="phone_c"
         type="tel"
-        value={formData.phone}
+        value={formData.phone_c}
         onChange={handleChange}
         placeholder="+1 (555) 123-4567"
       />
 
       <div className="grid grid-cols-2 gap-4">
         <Input
-          label="Company"
-          name="company"
-          value={formData.company}
+label="Company"
+          name="company_c"
+          value={formData.company_c}
           onChange={handleChange}
         />
         <Input
           label="Job Title"
-          name="jobTitle"
-          value={formData.jobTitle}
+          name="job_title_c"
+          value={formData.job_title_c}
           onChange={handleChange}
         />
       </div>
 
       <Input
-        label="LinkedIn Profile"
-        name="linkedin"
+label="LinkedIn Profile"
+        name="linkedin_c"
         type="url"
-        value={formData.linkedin}
+        value={formData.linkedin_c}
         onChange={handleChange}
         placeholder="https://linkedin.com/in/username"
       />
 
       <Textarea
-        label="Notes"
-        name="notes"
-        value={formData.notes}
+label="Notes"
+        name="notes_c"
+        value={formData.notes_c}
         onChange={handleChange}
         rows={4}
         placeholder="Add any additional notes about this contact..."
@@ -174,9 +178,9 @@ if (contact) {
             Add
           </Button>
         </div>
-        {formData.tags.length > 0 && (
+{formData.tags_c.length > 0 && (
           <div className="flex flex-wrap gap-2 mt-2">
-            {formData.tags.map((tag) => (
+            {formData.tags_c.map((tag) => (
               <span
                 key={tag}
                 className="inline-flex items-center gap-1 px-3 py-1 bg-primary/20 text-primary rounded-full text-sm border border-primary/30"
