@@ -54,7 +54,7 @@ if (sortConfig.key === "last_contacted_c") {
         <table className="w-full">
 <thead>
             <tr className="border-b border-gray-200">
-              <th className="px-6 py-4 text-left">
+<th className="px-4 py-3 text-left">
                 <button
                   onClick={() => handleSort("firstName")}
                   className="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors"
@@ -63,7 +63,7 @@ if (sortConfig.key === "last_contacted_c") {
                   <SortIcon columnKey="firstName" />
                 </button>
               </th>
-              <th className="px-6 py-4 text-left">
+<th className="px-4 py-3 text-left">
                 <button
                   onClick={() => handleSort("email")}
                   className="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors"
@@ -72,7 +72,7 @@ if (sortConfig.key === "last_contacted_c") {
                   <SortIcon columnKey="email" />
                 </button>
               </th>
-              <th className="px-6 py-4 text-left">
+<th className="px-4 py-3 text-left">
                 <button
                   onClick={() => handleSort("company")}
                   className="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors"
@@ -81,7 +81,7 @@ if (sortConfig.key === "last_contacted_c") {
                   <SortIcon columnKey="company" />
                 </button>
               </th>
-              <th className="px-6 py-4 text-left">
+<th className="px-4 py-3 text-left">
                 <button
                   onClick={() => handleSort("jobTitle")}
                   className="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors"
@@ -90,7 +90,7 @@ if (sortConfig.key === "last_contacted_c") {
                   <SortIcon columnKey="jobTitle" />
                 </button>
               </th>
-              <th className="px-6 py-4 text-left">
+<th className="px-4 py-3 text-left">
                 <button
                   onClick={() => handleSort("lastContacted")}
                   className="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors"
@@ -99,7 +99,7 @@ if (sortConfig.key === "last_contacted_c") {
                   <SortIcon columnKey="lastContacted" />
                 </button>
               </th>
-              <th className="px-6 py-4 text-right">
+<th className="px-4 py-3 text-right">
                 <span className="text-sm font-semibold text-gray-700">Actions</span>
               </th>
             </tr>
@@ -111,7 +111,7 @@ if (sortConfig.key === "last_contacted_c") {
 className="border-b border-gray-200 hover:bg-gray-100/50 transition-colors cursor-pointer"
                 onClick={() => navigate(`/contacts/${contact.Id}`)}
               >
-<td className="px-6 py-4">
+<td className="px-4 py-3">
                   <div className="flex items-center gap-3">
                     <Avatar name={`${contact.first_name_c} ${contact.last_name_c}`} size="sm" />
                     <span className="font-medium text-gray-900">
@@ -119,15 +119,15 @@ className="border-b border-gray-200 hover:bg-gray-100/50 transition-colors curso
                     </span>
                   </div>
                 </td>
-<td className="px-6 py-4 text-gray-600">{contact.email_c}</td>
-<td className="px-6 py-4 text-gray-600">{contact.company_c || "-"}</td>
-<td className="px-6 py-4 text-gray-600">{contact.job_title_c || "-"}</td>
-<td className="px-6 py-4 text-gray-600">
+<td className="px-4 py-3 text-gray-600">{contact.email_c}</td>
+<td className="px-4 py-3 text-gray-600">{contact.company_c || "-"}</td>
+<td className="px-4 py-3 text-gray-600">{contact.job_title_c || "-"}</td>
+<td className="px-4 py-3 text-gray-600">
                   {contact.last_contacted_c
                     ? format(new Date(contact.last_contacted_c), "MMM d, yyyy")
                     : "-"}
                 </td>
-                <td className="px-6 py-4 text-right">
+<td className="px-4 py-3 text-right">
 <button
                     onClick={(e) => {
                       e.stopPropagation();

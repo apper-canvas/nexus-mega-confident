@@ -95,7 +95,7 @@ const handleDelete = async () => {
   }
 
   return (
-    <div className="space-y-6">
+<div className="space-y-4">
       {/* Back Button */}
       <Button
         onClick={() => navigate("/contacts")}
@@ -110,20 +110,20 @@ const handleDelete = async () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="glass-card p-8"
+className="glass-card p-6"
       >
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="flex items-center gap-6">
+<div className="flex items-center gap-4">
 <Avatar
 name={`${contact.first_name_c} ${contact.last_name_c}`}
               size="xl"
               imageUrl={contact.image_url_c}
-            />
+/>
             <div>
-              <h1 className="text-3xl font-bold gradient-text">
+              <h1 className="text-2xl font-bold gradient-text">
 {contact.first_name_c} {contact.last_name_c}
               </h1>
-              <p className="text-gray-600 text-lg mt-1">{contact.job_title_c || "No job title"}</p>
+              <p className="text-gray-600 mt-1">{contact.job_title_c || "No job title"}</p>
               {contact.company_c && (
 <p className="text-gray-700 mt-1 flex items-center gap-2">
                   <ApperIcon name="Building2" size={16} />
@@ -133,7 +133,7 @@ name={`${contact.first_name_c} ${contact.last_name_c}`}
             </div>
 </div>
 
-          <div className="flex items-center gap-3">
+<div className="flex items-center gap-2">
             <Button onClick={() => setIsEditModalOpen(true)} variant="secondary">
               <ApperIcon name="Edit2" size={16} />
               Edit
@@ -156,21 +156,21 @@ name={`${contact.first_name_c} ${contact.last_name_c}`}
       </motion.div>
 
       {/* Tab Content */}
-      <motion.div
+<motion.div
         key={activeTab}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
       >
         {activeTab === "overview" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Contact Information */}
-            <div className="glass-card p-6">
+<div className="glass-card p-4">
               <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                 <ApperIcon name="User" size={20} className="text-primary" />
                 Contact Information
               </h3>
-<div className="space-y-4">
+<div className="space-y-3">
                 <div>
                   <label className="text-gray-500 text-sm">Email</label>
                   <p className="text-gray-900 mt-1">{contact.email_c}</p>
@@ -197,13 +197,13 @@ name={`${contact.first_name_c} ${contact.last_name_c}`}
               </div>
             </div>
 
-            {/* Additional Details */}
-            <div className="glass-card p-6">
+{/* Additional Details */}
+            <div className="glass-card p-4">
               <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                 <ApperIcon name="Calendar" size={20} className="text-primary" />
                 Timeline
               </h3>
-<div className="space-y-4">
+<div className="space-y-3">
                 <div>
                   <label className="text-gray-500 text-sm">Last Contacted</label>
                   <p className="text-gray-900 mt-1">
@@ -229,7 +229,7 @@ name={`${contact.first_name_c} ${contact.last_name_c}`}
 
             {/* Notes */}
 {contact.notes_c && (
-              <div className="glass-card p-6 md:col-span-2">
+              <div className="glass-card p-4 md:col-span-2">
                 <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                   <ApperIcon name="FileText" size={20} className="text-primary" />
                   Notes
@@ -240,7 +240,7 @@ name={`${contact.first_name_c} ${contact.last_name_c}`}
 
             {/* Tags */}
 {contact.tags_c && contact.tags_c.length > 0 && (
-              <div className="glass-card p-6 md:col-span-2">
+              <div className="glass-card p-4 md:col-span-2">
                 <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                   <ApperIcon name="Tag" size={20} className="text-primary" />
                   Tags

@@ -87,7 +87,7 @@ if (contact) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+<form onSubmit={handleSubmit} className="space-y-3">
       <div className="grid grid-cols-2 gap-4">
         <Input
           label="First Name"
@@ -160,7 +160,7 @@ if (contact) {
         placeholder="Add any additional notes about this contact..."
       />
 
-      <div className="space-y-2">
+<div className="space-y-1.5">
         <label className="block text-sm font-medium text-white/80">Tags</label>
         <div className="flex gap-2">
           <Input

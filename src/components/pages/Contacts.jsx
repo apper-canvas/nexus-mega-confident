@@ -111,12 +111,12 @@ if (searchQuery) {
   }
 
   return (
-    <div className="space-y-6">
+<div className="space-y-4">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
+className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3"
       >
         <div>
 <h1 className="text-3xl font-bold text-gray-900">Contacts</h1>
