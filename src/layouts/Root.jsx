@@ -127,8 +127,8 @@ function Root() {
     location.pathname.includes('/reset-password');
 
   return (
-    <AuthContext.Provider value={authMethods}>
-      <div className="min-h-screen bg-background">
+<AuthContext.Provider value={authMethods}>
+      <div className="min-h-screen bg-white">
         {!isAuthPage && <Sidebar />}
         <main className={!isAuthPage ? "lg:ml-60 p-6 lg:p-8 pt-20 lg:pt-8" : ""}>
           <div className={!isAuthPage ? "max-w-[1400px] mx-auto" : ""}>

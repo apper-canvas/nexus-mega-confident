@@ -13,11 +13,11 @@ const Button = forwardRef(({
   const baseStyles = "inline-flex items-center justify-center gap-2 font-medium rounded-lg transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed";
   
 const variants = {
-primary: "bg-gradient-to-r from-primary to-secondary text-white hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] shadow-glass",
-    secondary: "border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400",
-    ghost: "text-gray-600 hover:bg-gray-100 hover:text-gray-900",
-    danger: "bg-red-500 text-white hover:bg-red-600 hover:scale-[1.02] active:scale-[0.98]",
-    purple: "bg-primary text-white hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98] shadow-glass",
+    primary: "bg-primary text-white hover:bg-primary/90 transition-colors",
+    secondary: "bg-sidebar-bg text-text-primary hover:bg-sidebar-active border border-border transition-colors",
+    ghost: "text-text-secondary hover:bg-sidebar-active hover:text-text-primary transition-colors",
+    danger: "bg-red-500 text-white hover:bg-red-600 transition-colors",
+    purple: "bg-primary text-white hover:bg-primary/90 transition-colors",
   };
   
   const sizes = {

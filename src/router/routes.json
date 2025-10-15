@@ -12,6 +12,136 @@
       "redirectOnDeny": "/login"
     }
   },
+"/cache": {
+    "allow": {
+      "when": {
+        "conditions": [
+          {
+            "label": "User must be authenticated",
+            "rule": "authenticated"
+          }
+        ]
+      },
+      "redirectOnDeny": "/login"
+    }
+  },
+  "/css": {
+    "allow": {
+      "when": {
+        "conditions": [
+          {
+            "label": "User must be authenticated",
+            "rule": "authenticated"
+          }
+        ]
+      },
+      "redirectOnDeny": "/login"
+    }
+  },
+  "/javascript": {
+    "allow": {
+      "when": {
+        "conditions": [
+          {
+            "label": "User must be authenticated",
+            "rule": "authenticated"
+          }
+        ]
+      },
+      "redirectOnDeny": "/login"
+    }
+  },
+  "/fonts": {
+    "allow": {
+      "when": {
+        "conditions": [
+          {
+            "label": "User must be authenticated",
+            "rule": "authenticated"
+          }
+        ]
+      },
+      "redirectOnDeny": "/login"
+    }
+  },
+  "/images": {
+    "allow": {
+      "when": {
+        "conditions": [
+          {
+            "label": "User must be authenticated",
+            "rule": "authenticated"
+          }
+        ]
+      },
+      "redirectOnDeny": "/login"
+    }
+  },
+  "/iframes": {
+    "allow": {
+      "when": {
+        "conditions": [
+          {
+            "label": "User must be authenticated",
+            "rule": "authenticated"
+          }
+        ]
+      },
+      "redirectOnDeny": "/login"
+    }
+  },
+  "/cdn": {
+    "allow": {
+      "when": {
+        "conditions": [
+          {
+            "label": "User must be authenticated",
+            "rule": "authenticated"
+          }
+        ]
+      },
+      "redirectOnDeny": "/login"
+    }
+  },
+  "/bloat": {
+    "allow": {
+      "when": {
+        "conditions": [
+          {
+            "label": "User must be authenticated",
+            "rule": "authenticated"
+          }
+        ]
+      },
+      "redirectOnDeny": "/login"
+    }
+  },
+  "/database": {
+    "allow": {
+      "when": {
+        "conditions": [
+          {
+            "label": "User must be authenticated",
+            "rule": "authenticated"
+          }
+        ]
+      },
+      "redirectOnDeny": "/login"
+    }
+  },
+  "/settings": {
+    "allow": {
+      "when": {
+        "conditions": [
+          {
+            "label": "User must be authenticated",
+            "rule": "authenticated"
+          }
+        ]
+      },
+      "redirectOnDeny": "/login"
+    }
+  },
   "/contacts": {
     "allow": {
       "when": {

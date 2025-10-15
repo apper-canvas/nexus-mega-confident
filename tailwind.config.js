@@ -5,23 +5,28 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-colors: {
-        primary: "#7C3AED",
+extend: {
+      colors: {
+        primary: "#6366F1",
         secondary: "#3B82F6",
         accent: "#A78BFA",
-        surface: "rgba(255, 255, 255, 0.7)",
-        background: "#F8F9FA",
+        sidebar: {
+          bg: "#F3F2FF",
+          active: "#E8E6FF",
+        },
+        text: {
+          primary: "#1F2937",
+          secondary: "#6B7280",
+        },
+        border: "#E5E7EB",
+        surface: "#FFFFFF",
+        background: "#FFFFFF",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
       },
-      backdropBlur: {
-        glass: "20px",
-      },
       boxShadow: {
-        glass: "0 4px 24px rgba(124, 58, 237, 0.15)",
-        glow: "0 0 20px rgba(124, 58, 237, 0.4)",
+        card: "0 1px 3px rgba(0, 0, 0, 0.1)",
       },
     },
   },

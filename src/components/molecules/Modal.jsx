@@ -41,13 +41,13 @@ className="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-50"
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
                 className={cn(
-"w-full glass-card p-6 relative",
+"w-full bg-white border border-border rounded-xl p-6 relative shadow-card",
                   sizes[size],
                   className
                 )}
               >
                 <div className="flex items-center justify-between mb-6">
-<h2 className="text-2xl font-semibold text-gray-900">{title}</h2>
+                  <h2 className="text-2xl font-semibold text-text-primary">{title}</h2>
                   <button
 onClick={onClose}
 className="text-gray-500 hover:text-gray-900 transition-colors"

@@ -25,7 +25,7 @@ const Loading = ({ type = "card" }) => {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-[400px]">
+<div className="flex items-center justify-center min-h-[400px]">
       <motion.div
         className="flex flex-col items-center gap-4"
         initial={{ opacity: 0 }}
@@ -36,7 +36,7 @@ const Loading = ({ type = "card" }) => {
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
         />
-        <p className="text-white/60 text-sm">Loading...</p>
+        <p className="text-text-secondary text-sm">Loading...</p>
       </motion.div>
     </div>
   );

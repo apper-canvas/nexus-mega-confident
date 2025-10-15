@@ -8,86 +8,95 @@ import { cn } from "@/utils/cn";
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  const navItems = [
+const navItems = [
     { to: "/", icon: "LayoutDashboard", label: "Dashboard" },
-    { to: "/contacts", icon: "Users", label: "Contacts" },
-    { to: "/companies", icon: "Building2", label: "Companies" },
-    { to: "/deals", icon: "TrendingUp", label: "Deals" },
-    { to: "/analytics", icon: "BarChart3", label: "Analytics" },
+    { to: "/cache", icon: "Database", label: "Cache" },
+    { to: "/css", icon: "FileCode", label: "CSS" },
+    { to: "/javascript", icon: "Code", label: "JavaScript" },
+    { to: "/fonts", icon: "Type", label: "Fonts" },
+    { to: "/images", icon: "Image", label: "Images" },
+    { to: "/iframes", icon: "Monitor", label: "iFrames" },
+    { to: "/cdn", icon: "Globe", label: "CDN" },
+    { to: "/bloat", icon: "Trash2", label: "Bloat" },
+    { to: "/database", icon: "HardDrive", label: "Database" },
+    { to: "/settings", icon: "Settings", label: "Settings" },
   ];
 
   return (
     <>
       {/* Desktop Sidebar */}
-      <motion.div
-className={cn(
-          "hidden lg:block fixed left-0 top-0 h-screen glass-card border-r border-gray-200 transition-all duration-300 z-40",
+<motion.div
+        className={cn(
+          "hidden lg:block fixed left-0 top-0 h-screen sidebar-bg border-r border-border transition-all duration-300 z-40",
           isCollapsed ? "w-20" : "w-60"
         )}
       >
-        <div className="flex flex-col h-full p-4">
+<div className="flex flex-col h-full p-4">
           {/* Logo */}
           <div className="flex items-center justify-between mb-8">
             {!isCollapsed && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="flex items-center gap-3"
+                className="flex items-center gap-2"
               >
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
                   <ApperIcon name="Zap" size={20} className="text-white" />
                 </div>
-<h1 className="text-xl font-bold text-gray-900">Nexus CRM</h1>
+                <div>
+                  <h1 className="text-base font-semibold text-text-primary">FlyingPress</h1>
+                  <span className="text-xs text-text-secondary">v2.3.0</span>
+                </div>
               </motion.div>
             )}
             <button
               onClick={() => setIsCollapsed(!isCollapsed)}
-              className="p-2 hover:bg-white/5 rounded-lg transition-colors"
+              className="p-2 hover:bg-sidebar-active rounded-lg transition-colors"
             >
               <ApperIcon 
                 name={isCollapsed ? "ChevronRight" : "ChevronLeft"} 
-                size={20} 
-                className="text-white/60"
+                size={18} 
+                className="text-text-secondary"
               />
             </button>
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 space-y-2">
+<nav className="flex-1 space-y-1">
             {navItems.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
                 className={({ isActive }) =>
                   cn(
-"flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-200",
-                    "hover:bg-gray-100",
+                    "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200",
+                    "hover:bg-sidebar-active",
                     isActive
-                      ? "bg-gradient-to-r from-primary to-secondary text-white shadow-glow"
-                      : "text-gray-600"
+                      ? "sidebar-active text-primary font-medium"
+                      : "text-text-secondary"
                   )
                 }
               >
                 <ApperIcon name={item.icon} size={20} />
-                {!isCollapsed && <span className="font-medium">{item.label}</span>}
+                {!isCollapsed && <span className="text-[15px] font-medium">{item.label}</span>}
               </NavLink>
             ))}
           </nav>
 
-          {/* User Section */}
+{/* User Section */}
           {!isCollapsed && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="pt-4 border-t border-white/10"
+              className="pt-4 border-t border-border"
             >
-<div className="flex items-center gap-3 px-3 py-3 rounded-lg bg-gray-100">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-semibold">
+              <div className="flex items-center gap-3 px-3 py-3 rounded-lg bg-white">
+                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-semibold text-sm">
                   JD
                 </div>
                 <div className="flex-1 min-w-0">
-<p className="text-sm font-medium text-gray-900 truncate">John Doe</p>
-                  <p className="text-xs text-gray-600 truncate">john@nexus.com</p>
+                  <p className="text-sm font-medium text-text-primary truncate">John Doe</p>
+                  <p className="text-xs text-text-secondary truncate">john@nexus.com</p>
                 </div>
               </div>
             </motion.div>
@@ -95,7 +104,7 @@ className={cn(
         </div>
       </motion.div>
 
-      {/* Mobile Sidebar - Overlay */}
+{/* Mobile Sidebar - Overlay */}
       <div className="lg:hidden">
         <MobileSidebar navItems={navItems} />
       </div>
@@ -109,18 +118,21 @@ const MobileSidebar = ({ navItems }) => {
   return (
     <>
       {/* Mobile Header */}
-<div className="fixed top-0 left-0 right-0 h-16 glass-card border-b border-gray-200 flex items-center justify-between px-4 z-50">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+      <div className="fixed top-0 left-0 right-0 h-16 bg-white border-b border-border flex items-center justify-between px-4 z-50">
+        <div className="flex items-center gap-2">
+          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
             <ApperIcon name="Zap" size={20} className="text-white" />
           </div>
-<h1 className="text-xl font-bold text-gray-900">Nexus CRM</h1>
+          <div>
+            <h1 className="text-base font-semibold text-text-primary">FlyingPress</h1>
+            <span className="text-xs text-text-secondary">v2.3.0</span>
+          </div>
         </div>
         <button
           onClick={() => setIsOpen(!isOpen)}
-className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-          >
-          <ApperIcon name={isOpen ? "X" : "Menu"} size={24} className="text-gray-900" />
+          className="p-2 hover:bg-sidebar-active rounded-lg transition-colors"
+        >
+          <ApperIcon name={isOpen ? "X" : "Menu"} size={24} className="text-text-primary" />
         </button>
       </div>
 
@@ -133,16 +145,16 @@ className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-className="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-gray-900/50 z-40 lg:hidden"
             />
             <motion.div
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-className="fixed left-0 top-16 bottom-0 w-64 glass-card border-r border-gray-200 z-40 lg:hidden"
+              className="fixed left-0 top-16 bottom-0 w-64 sidebar-bg border-r border-border z-40 lg:hidden"
             >
-              <nav className="p-4 space-y-2">
+              <nav className="p-4 space-y-1">
                 {navItems.map((item) => (
                   <NavLink
                     key={item.to}
@@ -150,16 +162,16 @@ className="fixed left-0 top-16 bottom-0 w-64 glass-card border-r border-gray-200
                     onClick={() => setIsOpen(false)}
                     className={({ isActive }) =>
                       cn(
-"flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-200",
-                        "hover:bg-gray-100",
+                        "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200",
+                        "hover:bg-sidebar-active",
                         isActive
-                          ? "bg-gradient-to-r from-primary to-secondary text-white shadow-glow"
-                          : "text-gray-600"
+                          ? "sidebar-active text-primary font-medium"
+                          : "text-text-secondary"
                       )
                     }
                   >
                     <ApperIcon name={item.icon} size={20} />
-                    <span className="font-medium">{item.label}</span>
+                    <span className="text-[15px] font-medium">{item.label}</span>
                   </NavLink>
                 ))}
               </nav>

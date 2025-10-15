@@ -10,7 +10,7 @@ const Empty = ({
   onAction 
 }) => {
   return (
-    <motion.div
+<motion.div
       className="flex items-center justify-center min-h-[400px]"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -24,8 +24,8 @@ const Empty = ({
         >
           <ApperIcon name={icon} size={48} className="text-primary" />
         </motion.div>
-        <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
-        <p className="text-white/60 mb-6">{description}</p>
+        <h3 className="text-xl font-semibold text-text-primary mb-2">{title}</h3>
+        <p className="text-text-secondary mb-6">{description}</p>
         {actionLabel && onAction && (
           <Button onClick={onAction} variant="primary">
             {actionLabel}

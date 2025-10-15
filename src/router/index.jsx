@@ -5,6 +5,16 @@ import Root from '@/layouts/Root';
 
 // Lazy load components
 const Dashboard = lazy(() => import('@/components/pages/Dashboard'));
+const Cache = lazy(() => import('@/components/pages/Cache'));
+const CSS = lazy(() => import('@/components/pages/CSS'));
+const JavaScript = lazy(() => import('@/components/pages/JavaScript'));
+const Fonts = lazy(() => import('@/components/pages/Fonts'));
+const Images = lazy(() => import('@/components/pages/Images'));
+const IFrames = lazy(() => import('@/components/pages/IFrames'));
+const CDN = lazy(() => import('@/components/pages/CDN'));
+const Bloat = lazy(() => import('@/components/pages/Bloat'));
+const Database = lazy(() => import('@/components/pages/Database'));
+const Settings = lazy(() => import('@/components/pages/Settings'));
 const Contacts = lazy(() => import('@/components/pages/Contacts'));
 const ContactDetail = lazy(() => import('@/components/pages/ContactDetail'));
 const Companies = lazy(() => import('@/components/pages/Companies'));
@@ -58,6 +68,46 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: createRoute(Dashboard),
+      },
+      {
+        path: 'cache',
+        element: createRoute(Cache),
+      },
+      {
+        path: 'css',
+        element: createRoute(CSS),
+      },
+      {
+        path: 'javascript',
+        element: createRoute(JavaScript),
+      },
+      {
+        path: 'fonts',
+        element: createRoute(Fonts),
+      },
+      {
+        path: 'images',
+        element: createRoute(Images),
+      },
+      {
+        path: 'iframes',
+        element: createRoute(IFrames),
+      },
+      {
+        path: 'cdn',
+        element: createRoute(CDN),
+      },
+      {
+        path: 'bloat',
+        element: createRoute(Bloat),
+      },
+      {
+        path: 'database',
+        element: createRoute(Database),
+      },
+      {
+        path: 'settings',
+        element: createRoute(Settings),
       },
       {
         path: 'contacts',

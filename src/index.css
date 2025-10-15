@@ -12,7 +12,7 @@
 
 body {
   font-family: "Inter", system-ui, sans-serif;
-  background: #F8F9FA;
+  background: #FFFFFF;
   color: #1F2937;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -29,12 +29,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(124, 58, 237, 0.3);
+  background: rgba(99, 102, 241, 0.3);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(124, 58, 237, 0.5);
+  background: rgba(99, 102, 241, 0.5);
 }
 
 /* Toast Overrides */
@@ -43,12 +43,11 @@ body {
 }
 
 .Toastify__toast {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
   border-radius: 12px;
   padding: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   font-family: "Inter", sans-serif;
   min-height: auto;
 }
@@ -72,7 +71,7 @@ body {
 }
 
 .Toastify__progress-bar {
-  background: linear-gradient(90deg, #7C3AED, #3B82F6);
+  background: #6366F1;
 }
 
 .Toastify__close-button {
@@ -84,23 +83,30 @@ body {
   color: rgba(0, 0, 0, 0.8);
 }
 
-/* Glass Card Effect */
+/* Card Effect */
 .glass-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
   border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* Gradient Text */
 .gradient-text {
-  background: linear-gradient(135deg, #7C3AED, #3B82F6);
+  background: linear-gradient(135deg, #6366F1, #3B82F6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+/* FlyingPress Specific Utilities */
+.sidebar-bg {
+  background-color: #F3F2FF;
+}
+
+.sidebar-active {
+  background-color: #E8E6FF;
+}
 /* Animations */
 @keyframes slideInRight {
   from {
