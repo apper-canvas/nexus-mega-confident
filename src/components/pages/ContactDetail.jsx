@@ -94,8 +94,8 @@ const handleDelete = async () => {
     return <Error message="Contact not found" />;
   }
 
-  return (
-<div className="space-y-4">
+return (
+    <div className="space-y-4">
       {/* Back Button */}
       <Button
         onClick={() => navigate("/contacts")}
@@ -110,30 +110,30 @@ const handleDelete = async () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-className="glass-card p-6"
+        className="bg-gradient-to-r from-[#1e3a8a] to-[#1e40af] rounded-xl p-6 border border-blue-800 shadow-lg"
       >
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-<div className="flex items-center gap-4">
-<Avatar
-name={`${contact.first_name_c} ${contact.last_name_c}`}
+          <div className="flex items-center gap-4">
+            <Avatar
+              name={`${contact.first_name_c} ${contact.last_name_c}`}
               size="xl"
               imageUrl={contact.image_url_c}
-/>
+            />
             <div>
-              <h1 className="text-2xl font-bold gradient-text">
-{contact.first_name_c} {contact.last_name_c}
+              <h1 className="text-2xl font-bold text-white">
+                {contact.first_name_c} {contact.last_name_c}
               </h1>
-              <p className="text-gray-600 mt-1">{contact.job_title_c || "No job title"}</p>
+              <p className="text-blue-200 mt-1">{contact.job_title_c || "No job title"}</p>
               {contact.company_c && (
-<p className="text-gray-700 mt-1 flex items-center gap-2">
-                  <ApperIcon name="Building2" size={16} />
-                  {contact.company}
+                <p className="text-blue-100 mt-1 flex items-center gap-2">
+                  <ApperIcon name="Building2" size={16} className="text-blue-300" />
+                  {contact.company_c}
                 </p>
               )}
             </div>
-</div>
+          </div>
 
-<div className="flex items-center gap-2">
+          <div className="flex items-center gap-2">
             <Button onClick={() => setIsEditModalOpen(true)} variant="secondary">
               <ApperIcon name="Edit2" size={16} />
               Edit
@@ -162,33 +162,33 @@ name={`${contact.first_name_c} ${contact.last_name_c}`}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
       >
-        {activeTab === "overview" && (
+{activeTab === "overview" && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Contact Information */}
-<div className="glass-card p-4">
-              <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 shadow-card">
+              <h3 className="text-lg font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4 flex items-center gap-2">
                 <ApperIcon name="User" size={20} className="text-primary" />
                 Contact Information
               </h3>
-<div className="space-y-3">
+              <div className="space-y-3">
                 <div>
-                  <label className="text-gray-500 text-sm">Email</label>
-                  <p className="text-gray-900 mt-1">{contact.email_c}</p>
+                  <label className="text-blue-700 text-sm font-medium">Email</label>
+                  <p className="text-blue-900 mt-1">{contact.email_c}</p>
                 </div>
                 {contact.phone_c && (
                   <div>
-                    <label className="text-gray-500 text-sm">Phone</label>
-                    <p className="text-gray-900 mt-1">{contact.phone_c}</p>
+                    <label className="text-blue-700 text-sm font-medium">Phone</label>
+                    <p className="text-blue-900 mt-1">{contact.phone_c}</p>
                   </div>
                 )}
                 {contact.linkedin_c && (
                   <div>
-                    <label className="text-gray-500 text-sm">LinkedIn</label>
+                    <label className="text-blue-700 text-sm font-medium">LinkedIn</label>
                     <a
                       href={contact.linkedin_c}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary hover:text-accent transition-colors mt-1 block"
+                      className="text-primary hover:text-secondary transition-colors mt-1 block font-medium"
                     >
                       View Profile
                     </a>
@@ -198,50 +198,50 @@ name={`${contact.first_name_c} ${contact.last_name_c}`}
             </div>
 
 {/* Additional Details */}
-            <div className="glass-card p-4">
-              <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+            <div className="bg-blue-100 border border-blue-300 rounded-xl p-4 shadow-card">
+              <h3 className="text-lg font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4 flex items-center gap-2">
                 <ApperIcon name="Calendar" size={20} className="text-primary" />
                 Timeline
               </h3>
-<div className="space-y-3">
+              <div className="space-y-3">
                 <div>
-                  <label className="text-gray-500 text-sm">Last Contacted</label>
-                  <p className="text-gray-900 mt-1">
+                  <label className="text-blue-700 text-sm font-medium">Last Contacted</label>
+                  <p className="text-blue-900 mt-1">
                     {contact.last_contacted_c
                       ? format(new Date(contact.last_contacted_c), "MMMM d, yyyy 'at' h:mm a")
                       : "Never"}
                   </p>
                 </div>
                 <div>
-                  <label className="text-gray-500 text-sm">Created</label>
-                  <p className="text-gray-900 mt-1">
+                  <label className="text-blue-700 text-sm font-medium">Created</label>
+                  <p className="text-blue-900 mt-1">
                     {format(new Date(contact.CreatedOn), "MMMM d, yyyy")}
                   </p>
                 </div>
                 <div>
-                  <label className="text-gray-500 text-sm">Last Updated</label>
-                  <p className="text-gray-900 mt-1">
+                  <label className="text-blue-700 text-sm font-medium">Last Updated</label>
+                  <p className="text-blue-900 mt-1">
                     {format(new Date(contact.ModifiedOn), "MMMM d, yyyy")}
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Notes */}
-{contact.notes_c && (
-              <div className="glass-card p-4 md:col-span-2">
-                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+{/* Notes */}
+            {contact.notes_c && (
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 md:col-span-2 shadow-card">
+                <h3 className="text-lg font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4 flex items-center gap-2">
                   <ApperIcon name="FileText" size={20} className="text-primary" />
                   Notes
                 </h3>
-<p className="text-gray-900 whitespace-pre-wrap">{contact.notes_c}</p>
+                <p className="text-blue-900 whitespace-pre-wrap">{contact.notes_c}</p>
               </div>
             )}
 
             {/* Tags */}
-{contact.tags_c && contact.tags_c.length > 0 && (
-              <div className="glass-card p-4 md:col-span-2">
-                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+            {contact.tags_c && contact.tags_c.length > 0 && (
+              <div className="bg-blue-100 border border-blue-300 rounded-xl p-4 md:col-span-2 shadow-card">
+                <h3 className="text-lg font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4 flex items-center gap-2">
                   <ApperIcon name="Tag" size={20} className="text-primary" />
                   Tags
                 </h3>
@@ -257,8 +257,8 @@ name={`${contact.first_name_c} ${contact.last_name_c}`}
           </div>
         )}
 
-        {activeTab === "activity" && (
-          <div className="glass-card p-8">
+{activeTab === "activity" && (
+          <div className="bg-gradient-to-br from-blue-900 to-blue-800 border border-blue-700 rounded-xl p-8 shadow-lg">
             <Empty
               icon="Activity"
               title="Activity Timeline Coming Soon"
@@ -268,7 +268,7 @@ name={`${contact.first_name_c} ${contact.last_name_c}`}
         )}
 
         {activeTab === "deals" && (
-          <div className="glass-card p-8">
+          <div className="bg-gradient-to-br from-blue-900 to-blue-800 border border-blue-700 rounded-xl p-8 shadow-lg">
             <Empty
               icon="TrendingUp"
               title="Deal Management Coming Soon"
@@ -278,7 +278,7 @@ name={`${contact.first_name_c} ${contact.last_name_c}`}
         )}
 
         {activeTab === "notes" && (
-          <div className="glass-card p-8">
+          <div className="bg-gradient-to-br from-blue-900 to-blue-800 border border-blue-700 rounded-xl p-8 shadow-lg">
             <Empty
               icon="FileText"
               title="Enhanced Notes Coming Soon"
