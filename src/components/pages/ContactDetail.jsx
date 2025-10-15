@@ -125,11 +125,11 @@ name={`${contact.first_name_c} ${contact.last_name_c}`}
               </h1>
               <p className="text-gray-600 text-lg mt-1">{contact.job_title_c || "No job title"}</p>
               {contact.company_c && (
-                <p className="text-white/80 mt-1 flex items-center gap-2">
+<p className="text-gray-700 mt-1 flex items-center gap-2">
                   <ApperIcon name="Building2" size={16} />
                   {contact.company}
                 </p>
-)}
+              )}
             </div>
 </div>
 
@@ -172,18 +172,18 @@ name={`${contact.first_name_c} ${contact.last_name_c}`}
               </h3>
 <div className="space-y-4">
                 <div>
-                  <label className="text-white/60 text-sm">Email</label>
-<p className="text-white mt-1">{contact.email_c}</p>
+                  <label className="text-gray-500 text-sm">Email</label>
+                  <p className="text-gray-900 mt-1">{contact.email_c}</p>
                 </div>
                 {contact.phone_c && (
                   <div>
-                    <label className="text-white/60 text-sm">Phone</label>
-                    <p className="text-white mt-1">{contact.phone_c}</p>
+                    <label className="text-gray-500 text-sm">Phone</label>
+                    <p className="text-gray-900 mt-1">{contact.phone_c}</p>
                   </div>
                 )}
                 {contact.linkedin_c && (
                   <div>
-                    <label className="text-white/60 text-sm">LinkedIn</label>
+                    <label className="text-gray-500 text-sm">LinkedIn</label>
                     <a
                       href={contact.linkedin_c}
                       target="_blank"
@@ -203,24 +203,24 @@ name={`${contact.first_name_c} ${contact.last_name_c}`}
                 <ApperIcon name="Calendar" size={20} className="text-primary" />
                 Timeline
               </h3>
-              <div className="space-y-4">
-<div>
-<label className="text-white/60 text-sm">Last Contacted</label>
-                  <p className="text-white mt-1">
+<div className="space-y-4">
+                <div>
+                  <label className="text-gray-500 text-sm">Last Contacted</label>
+                  <p className="text-gray-900 mt-1">
                     {contact.last_contacted_c
                       ? format(new Date(contact.last_contacted_c), "MMMM d, yyyy 'at' h:mm a")
                       : "Never"}
                   </p>
                 </div>
                 <div>
-                  <label className="text-white/60 text-sm">Created</label>
-                  <p className="text-white mt-1">
+                  <label className="text-gray-500 text-sm">Created</label>
+                  <p className="text-gray-900 mt-1">
                     {format(new Date(contact.CreatedOn), "MMMM d, yyyy")}
                   </p>
                 </div>
                 <div>
-                  <label className="text-white/60 text-sm">Last Updated</label>
-                  <p className="text-white mt-1">
+                  <label className="text-gray-500 text-sm">Last Updated</label>
+                  <p className="text-gray-900 mt-1">
                     {format(new Date(contact.ModifiedOn), "MMMM d, yyyy")}
                   </p>
                 </div>
@@ -234,7 +234,7 @@ name={`${contact.first_name_c} ${contact.last_name_c}`}
                   <ApperIcon name="FileText" size={20} className="text-primary" />
                   Notes
                 </h3>
-                <p className="text-white/80 whitespace-pre-wrap">{contact.notes_c}</p>
+<p className="text-gray-900 whitespace-pre-wrap">{contact.notes_c}</p>
               </div>
             )}
 
