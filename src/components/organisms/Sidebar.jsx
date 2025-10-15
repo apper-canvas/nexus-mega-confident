@@ -27,7 +27,7 @@ const navItems = [
       {/* Desktop Sidebar */}
 <motion.div
         className={cn(
-          "hidden lg:block fixed left-0 top-0 h-screen sidebar-bg border-r border-border transition-all duration-300 z-40",
+          "hidden lg:block fixed left-0 top-0 h-screen bg-sidebar-bg border-r border-border/60 transition-all duration-300 z-40 shadow-sm",
           isCollapsed ? "w-20" : "w-60"
         )}
       >
@@ -90,13 +90,13 @@ const navItems = [
               animate={{ opacity: 1 }}
               className="pt-4 border-t border-border"
             >
-              <div className="flex items-center gap-3 px-3 py-3 rounded-lg bg-white">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-semibold text-sm">
+<div className="flex items-center gap-3 px-3 py-3 rounded-xl bg-surface border border-border/50 shadow-card">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-semibold text-sm shadow-sm">
                   JD
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-text-primary truncate">John Doe</p>
-                  <p className="text-xs text-text-secondary truncate">john@nexus.com</p>
+                  <p className="text-sm font-semibold text-text-primary truncate">John Doe</p>
+                  <p className="text-xs text-text-secondary/80 truncate">john@nexus.com</p>
                 </div>
               </div>
             </motion.div>
@@ -118,19 +118,19 @@ const MobileSidebar = ({ navItems }) => {
   return (
     <>
       {/* Mobile Header */}
-      <div className="fixed top-0 left-0 right-0 h-16 bg-white border-b border-border flex items-center justify-between px-4 z-50">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+<div className="fixed top-0 left-0 right-0 h-16 bg-surface border-b border-border/60 flex items-center justify-between px-4 z-50 shadow-sm">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-sm">
             <ApperIcon name="Zap" size={20} className="text-white" />
           </div>
           <div>
-            <h1 className="text-base font-semibold text-text-primary">FlyingPress</h1>
-            <span className="text-xs text-text-secondary">v2.3.0</span>
+            <h1 className="text-base font-bold text-text-primary">FlyingPress</h1>
+            <span className="text-xs text-text-secondary/70 font-medium">v2.3.0</span>
           </div>
         </div>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="p-2 hover:bg-sidebar-active rounded-lg transition-colors"
+          className="p-2 hover:bg-sidebar-active rounded-xl transition-all duration-200 active:scale-95"
         >
           <ApperIcon name={isOpen ? "X" : "Menu"} size={24} className="text-text-primary" />
         </button>
@@ -151,8 +151,8 @@ const MobileSidebar = ({ navItems }) => {
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed left-0 top-16 bottom-0 w-64 sidebar-bg border-r border-border z-40 lg:hidden"
+transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed left-0 top-16 bottom-0 w-64 bg-sidebar-bg border-r border-border/60 z-40 lg:hidden shadow-lg"
             >
               <nav className="p-4 space-y-1">
                 {navItems.map((item) => (
