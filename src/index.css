@@ -99,13 +99,13 @@ body {
   background-clip: text;
 }
 
-/* FlyingPress Specific Utilities */
+/* CRM Specific Utilities */
 .sidebar-bg {
-  background-color: #F3F2FF;
+  background-color: #F9FAFB;
 }
 
 .sidebar-active {
-  background-color: #E8E6FF;
+  background-color: #E0F2FE;
 }
 /* Animations */
 @keyframes slideInRight {

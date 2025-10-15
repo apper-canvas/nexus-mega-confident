@@ -10,15 +10,10 @@ const Sidebar = () => {
 
 const navItems = [
     { to: "/", icon: "LayoutDashboard", label: "Dashboard" },
-    { to: "/cache", icon: "Database", label: "Cache" },
-    { to: "/css", icon: "FileCode", label: "CSS" },
-    { to: "/javascript", icon: "Code", label: "JavaScript" },
-    { to: "/fonts", icon: "Type", label: "Fonts" },
-    { to: "/images", icon: "Image", label: "Images" },
-    { to: "/iframes", icon: "Monitor", label: "iFrames" },
-    { to: "/cdn", icon: "Globe", label: "CDN" },
-    { to: "/bloat", icon: "Trash2", label: "Bloat" },
-    { to: "/database", icon: "HardDrive", label: "Database" },
+    { to: "/contacts", icon: "Users", label: "Contacts" },
+    { to: "/deals", icon: "DollarSign", label: "Deals" },
+    { to: "/companies", icon: "Building2", label: "Companies" },
+    { to: "/analytics", icon: "BarChart3", label: "Analytics" },
     { to: "/settings", icon: "Settings", label: "Settings" },
   ];
 
@@ -33,7 +28,7 @@ const navItems = [
       >
 <div className="flex flex-col h-full p-4">
           {/* Logo */}
-          <div className="flex items-center justify-between mb-8">
+<div className="flex items-center justify-between mb-8">
             {!isCollapsed && (
               <motion.div
                 initial={{ opacity: 0 }}
@@ -41,11 +36,11 @@ const navItems = [
                 className="flex items-center gap-2"
               >
                 <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                  <ApperIcon name="Zap" size={20} className="text-white" />
+                  <ApperIcon name="Users" size={20} className="text-white" />
                 </div>
                 <div>
-                  <h1 className="text-base font-semibold text-text-primary">FlyingPress</h1>
-                  <span className="text-xs text-text-secondary">v2.3.0</span>
+                  <h1 className="text-base font-semibold text-text-primary">Nexus CRM</h1>
+                  <span className="text-xs text-text-secondary">v1.0.0</span>
                 </div>
               </motion.div>
             )}
@@ -121,11 +116,11 @@ const MobileSidebar = ({ navItems }) => {
 <div className="fixed top-0 left-0 right-0 h-16 bg-surface border-b border-border/60 flex items-center justify-between px-4 z-50 shadow-sm">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-sm">
-            <ApperIcon name="Zap" size={20} className="text-white" />
+            <ApperIcon name="Users" size={20} className="text-white" />
           </div>
           <div>
-            <h1 className="text-base font-bold text-text-primary">FlyingPress</h1>
-            <span className="text-xs text-text-secondary/70 font-medium">v2.3.0</span>
+            <h1 className="text-base font-bold text-text-primary">Nexus CRM</h1>
+            <span className="text-xs text-text-secondary/70 font-medium">v1.0.0</span>
           </div>
         </div>
         <button
